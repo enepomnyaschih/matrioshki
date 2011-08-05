@@ -1,0 +1,28 @@
+JW.ns("KM.Model.MapData");
+
+KM.Model.MapData.Default = {
+    playersCount: 2,
+    playersAreas: [
+        [{id:0,power:8}],
+        [{id:2,power:8}]
+    ],
+    areas: [
+        {
+            coordinates: [[0,0],[0,1],[1,1],[1,0]],
+            center: [0.5, 0.5]
+        },
+        {
+            coordinates: [[1,0],[1,1],[2,1],[2,0]],
+            center: [1.5, 0.5]
+        },
+        {
+            coordinates: [[2,0],[2,1],[3,1],[3,0]],
+            center: [2.5, 0.5]
+        }
+    ],
+    areasNeighborders: [
+        [1],
+        [0,2],
+        [1]
+    ]
+};
