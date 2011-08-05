@@ -34,6 +34,12 @@ JW.Svg = JW.Component.extend({
         this._super();
     },
     
+    creationComplete: function()
+    {
+        for (var i = 0; i < this.children.length; ++i)
+            this.children[i].creationComplete();
+    },
+    
     addChild: function(child)
     {
         this.el.append(child.el);
