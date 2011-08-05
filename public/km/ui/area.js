@@ -7,6 +7,6 @@ KM.UI.Area = JW.Svg.extend({
     {
         this._super();
         
-        this.setAttribute("overflow", "visible");
+        this.setAttr("overflow", "visible");
     }
 });
