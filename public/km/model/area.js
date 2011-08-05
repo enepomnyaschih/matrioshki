@@ -1,12 +1,13 @@
 JW.ns("KM.Model");
 
 KM.Model.Area = JW.Model.extend({
-    coordinates: null, /*Array<Array<Integer>>*/
-    center: null, /*Array<Integer>*/
+    CHANGED             : "changed",    //handler(event, KM.Model.Area)
+    coordinates         : null,         //[required] Array<Array<Integer>>
+    center              : null,         //[required] Array<Integer>
 
     //private
-    player: null, /*KM.Model.Player*/
-    power: null,  /*Integer*/
+    player              : null,         //[readonly] KM.Model.Player
+    power               : null,         //[readonly] Integer
 
     update: function(player /*KM.Model.Player*/, power /*Integer*/) /*void*/
     {

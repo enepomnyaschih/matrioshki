@@ -1,11 +1,12 @@
 JW.ns("KM.Model");
 
 KM.Model.Map = JW.Model.extend({
-    mapData: null, /*[required] Object*/
+    CHANGED             : "changed",    // handler(event, KM.Model.Area)
 
-    //private
-    areas: null, /*Array<KM.Model.Area>*/
-    neighborders: null, /*JW.Map*/
+    mapData             : null,         //[required] Object
+
+    areas               : null,         //[readonly] Array<KM.Model.Area>
+    neighborders        : null,         //[readonly] JW.Map
 
     init: function(config /*Object*/) /*void*/
     {
