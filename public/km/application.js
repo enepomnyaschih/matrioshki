@@ -15,7 +15,9 @@ KM.Application = JW.Svg.extend({
         this._super();
         
         // initialize model
-        this.game = new KM.Model.Game();
+        this.game = new KM.Model.Game({
+            mapData         : KM.Model.MapData.DimaxionMap.Small
+        });
     },
     
     render: function()
