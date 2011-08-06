@@ -32,7 +32,7 @@ KM.UI.Battle = JW.Svg.extend({
     run: function()
     {
         this._timerRoll  = setInterval(this._onRoll .inScope(this), 70);
-        this._timerLogic = setInterval(this._onLogic.inScope(this), 100);
+        this._timerLogic = setInterval(this._onLogic.inScope(this), 90);
     },
     
     _onRoll: function()
@@ -60,7 +60,7 @@ KM.UI.Battle = JW.Svg.extend({
         else
             this.attackView.defeat();
         
-        setTimeout(this._onFinish.inScope(this), 700);
+        setTimeout(this._onFinish.inScope(this), 600);
     },
     
     _onFinish: function()
