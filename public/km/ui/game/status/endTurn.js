@@ -58,11 +58,6 @@ KM.UI.Game.Status.EndTurn = KM.UI.Game.Status.extend({
         
         for (var i = 0; i < n; i++)
         {
-            var area = areas[i];
-
-            if (area.player != this.gameView.currentPlayer)
-               continue;
-
             var temp = 0;
 
             for (var j = 0; j < n; j++)
@@ -72,6 +67,8 @@ KM.UI.Game.Status.EndTurn = KM.UI.Game.Status.extend({
 
             result = Math.max(result, temp);
         }
+
+        console.log(result);
 
         return result;
     },

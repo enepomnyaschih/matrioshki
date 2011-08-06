@@ -98,7 +98,7 @@ KM.Model.Map = JW.Model.extend({
             var a = areas[i];
             areas[i] = areas[j];
             areas[j] = a;
-            areas[i].player = i % 2;
+            areas[i].player =  (i % 4) == 0 ? 0 : 1;
         }
     }
 });
