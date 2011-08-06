@@ -24,7 +24,7 @@ KM.UI.Area = JW.Svg.extend({
         
         this.areaPath = this.paper.path("M" + this.area.coordinates.map(renderVertex).join("L"));
         this.areaPath.attr({
-            "fill"      : "#77a2d9",
+            "fill"      : this.area.player ? JW.Colors.lighten(this.area.player.color, .5) : "#77a2d9",
             "stroke"    : null
         });
     },
