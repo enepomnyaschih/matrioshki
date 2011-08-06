@@ -97,7 +97,7 @@ KM.Model.MapData.DimaxionMap.Small = {
             "coordinates":[[968.86,304.16],[1068.56,486.99],[869.14,486.94]],
             "center":[968.85,426.03],
             "player":1,
-            "power":[8,9],
+            "power":2,
             "borders":[8,9]
         },
         {
