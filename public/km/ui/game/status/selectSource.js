@@ -6,7 +6,7 @@ KM.UI.Game.Status.SelectSource = KM.UI.Game.Status.extend({
         
         this.gameView.game.map.getPlayerBorders(0).each(function(area) {
             var view = this.gameView.mapView.areaViews[area.index];
-            view.highlight();
+            view.setLight(KM.Constants.AREA_LIGHTEN_HIGH);
             view.enable();
         }, this);
         

@@ -10,17 +10,18 @@ KM.Model.Area = JW.Model.extend({
     coordinates         : null,         //[required] Array<Array<Integer>>
     center              : null,         //[required] Array<Integer>
     player              : null,         //[required] Integer
-    power               : null,         //[required] Integer
     cityCount           : null,         //[required] Integer
     borders             : null,         //[required] Array<Integer>
+    
+    power               : null,         //[readonly] Integer
     
     init: function(map, index, data)
     {
         this._super(data);
         
         this.map = map;
-        this.power = Math.floor(Math.random() * 2 + 1) + this.cityCount;
         this.index = index;
+        this.power = 1 + 2 * this.cityCount;
     },
 
     setPlayer: function(value)

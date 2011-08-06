@@ -30,7 +30,7 @@ KM.UI.Game.Status.SelectTarget = KM.UI.Game.Status.extend({
         var areaView = this.gameView.mapView.areaViews[areaIndex];
         if (areaView.area.player == 1)
         {
-            areaView.highlight();
+            areaView.setLight(KM.Constants.AREA_LIGHTEN_HIGH);
             areaView.enable();
         }
     },

@@ -23,7 +23,8 @@ KM.ConstantsClass = JW.Class.extend({
     DICE_VIEW_SIZE      : 20,
     
     AREA_LIGHTEN_STD    : .4,
-    AREA_LIGHTEN_HIGH   : .7,
+    AREA_LIGHTEN_HIGH   : .6,
+    AREA_LIGHTEN_BATTLE : .8,
     
     BATTLE_VIEW_X       : 80,
     BATTLE_VIEW_Y       : 470,
