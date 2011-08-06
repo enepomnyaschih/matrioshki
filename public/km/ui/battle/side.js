@@ -21,12 +21,19 @@ KM.UI.Battle.Side = JW.Svg.extend({
         
         for (var i = 0; i < this.side.inPower; ++i)
         {
+            var x = i * 30;
+            
             var unitView = this.side.player.createUnitView({
                 power   : i,
-                x       : i * 30
+                x       : x
+            });
+            
+            var diceView = new KM.UI.Dice({
+                x       : x
             });
             
             this.unitsView.addChild(unitView);
+            this.dicesView.addChild(diceView);
         }
     },
     
