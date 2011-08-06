@@ -31,8 +31,8 @@ KM.UI.Battle = JW.Svg.extend({
     
     run: function()
     {
-        this._timerRoll  = setInterval(this._onRoll .inScope(this), 100);
-        this._timerLogic = setInterval(this._onLogic.inScope(this), 120);
+        this._timerRoll  = setInterval(this._onRoll .inScope(this), 70);
+        this._timerLogic = setInterval(this._onLogic.inScope(this), 100);
     },
     
     _onRoll: function()
@@ -49,8 +49,8 @@ KM.UI.Battle = JW.Svg.extend({
         if (++this.dicesDone != KM.Constants.UNIT_MAX_POWER)
             return;
         
-        clearInterval(this.timerRoll);
-        clearInterval(this.timerLogic);
+        clearInterval(this._timerRoll);
+        clearInterval(this._timerLogic);
         
         this.attackView .showPoints();
         this.defenceView.showPoints();
@@ -60,7 +60,7 @@ KM.UI.Battle = JW.Svg.extend({
         else
             this.attackView.defeat();
         
-        setTimeout(this._onFinish.inScope(this), 500);
+        setTimeout(this._onFinish.inScope(this), 700);
     },
     
     _onFinish: function()

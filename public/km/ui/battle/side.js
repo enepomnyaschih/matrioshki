@@ -21,7 +21,7 @@ KM.UI.Battle.Side = JW.Svg.extend({
         
         for (var i = 0; i < this.side.inPower; ++i)
         {
-            var x = i * 30;
+            var x = 50 + i * 30;
             
             var unitView = this.side.player.createUnitView({
                 power   : i,
@@ -47,14 +47,24 @@ KM.UI.Battle.Side = JW.Svg.extend({
     fixDice: function(index)
     {
         this.dicesDone = index + 1;
-        if (index >= this.side.inPower)
+        var diceIndex = KM.Constants.UNIT_MAX_POWER - index - 1;
+        if (diceIndex >= this.side.inPower)
             return;
         
-        this.dicesView.children[index].setPoints(this.side.dicePoints[index]);
+        this.dicesView.children[diceIndex].setPoints(this.side.dicePoints[diceIndex]);
     },
     
     showPoints: function()
     {
+        var power = 0;
+        for (var i = 0; i < this.side.dicePoints.length; ++i)
+            power += this.side.dicePoints[i];
+        
+        this.paper.text(15, 0, power.toString()).attr({
+            "fill"          : this.side.player.color,
+            "font-size"     : 20,
+            "font-family"   : "Comic Sans MS,serif"
+        });
     },
     
     defeat: function()
