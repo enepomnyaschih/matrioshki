@@ -21,7 +21,7 @@ KM.Model.Area = JW.Model.extend({
         
         this.map = map;
         this.index = index;
-        this.power = 1 + 2 * this.cityCount;
+        this.power = 1 + 1 * this.cityCount;
     },
 
     setPlayer: function(value)
