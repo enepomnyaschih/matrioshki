@@ -74,7 +74,7 @@ KM.UI.Game = JW.Svg.extend({
     {
         this.setStatus(this.currentPlayer == 0 ?
             new KM.UI.Game.Status.SelectSource() :
-            new KM.UI.Game.Status.EndTurn() // AI
+            new KM.UI.Game.Status.AI()
         );
     },
     
@@ -82,6 +82,11 @@ KM.UI.Game = JW.Svg.extend({
     {
         this.currentPlayer = 1 - this.currentPlayer;
         this.resetStatus();
+    },
+    
+    endTurn: function()
+    {
+        this.setStatus(new KM.UI.Game.Status.EndTurn());
     },
     
     _resetAreas: function()
@@ -96,6 +101,6 @@ KM.UI.Game = JW.Svg.extend({
     
     _onEndTurnClick: function()
     {
-        this.setStatus(new KM.UI.Game.Status.EndTurn());
+        this.endTurn();
     }
 });

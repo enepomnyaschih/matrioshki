@@ -29,7 +29,10 @@ KM.UI.Game.Status.SelectTarget = KM.UI.Game.Status.extend({
     {
         var areaView = this.gameView.mapView.areaViews[areaIndex];
         if (areaView.area.player == 1)
+        {
             areaView.highlight();
+            areaView.enable();
+        }
     },
     
     _onAreaClicked: function(event, areaView)

@@ -36,7 +36,7 @@ KM.Model.Map = JW.Model.extend({
         for (var i = 0; i < this.areas.length; ++i)
         {
             var area = this.areas[i];
-            if (area.player != 0 || area.power == 1 ||
+            if (area.player != playerIndex || area.power == 1 ||
                 area.borders.every(isAllyArea, this))
                 continue;
             

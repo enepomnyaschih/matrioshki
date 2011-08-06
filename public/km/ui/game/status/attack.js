@@ -23,6 +23,9 @@ KM.UI.Game.Status.Attack = KM.UI.Game.Status.extend({
     {
         this.gameView.endTurnButton.hide();
         
+        this.sourceAreaView.highlight();
+        this.targetAreaView.highlight();
+        
         var attack = new KM.Model.Battle.Side({
             player  : this.sourceArea.getPlayer(),
             inPower : this.sourceArea.power

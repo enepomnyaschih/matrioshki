@@ -7,6 +7,7 @@ KM.UI.Area = JW.Svg.extend({
     areaPath    : null,     // [readonly] Raphael path
     unitView    : null,     // [readonly] KM.UI.Unit
     highlighted : false,    // [readonly] Boolean
+    enabled     : false,    // [readonly] Boolean
     
     render: function()
     {
@@ -27,20 +28,42 @@ KM.UI.Area = JW.Svg.extend({
             return;
         
         this.highlighted = true;
-        this.setAttr("cursor", "pointer");
         this._updateColor();
-        this.el.bind("click", this._clickHandler);
     },
     
-    reset: function()
+    delight: function()
     {
         if (!this.highlighted)
             return;
         
         this.highlighted = false;
-        this.removeAttr("cursor");
         this._updateColor();
+    },
+    
+    enable: function()
+    {
+        if (this.enabled)
+            return;
+        
+        this.enabled = true;
+        this.setAttr("cursor", "pointer");
+        this.el.bind("click", this._clickHandler);
+    },
+    
+    disable: function()
+    {
+        if (!this.enabled)
+            return;
+        
+        this.enabled = false;
+        this.removeAttr("cursor");
         this.el.unbind("click", this._clickHandler);
+    },
+    
+    reset: function()
+    {
+        this.delight();
+        this.disable();
     },
     
     _renderArea: function()

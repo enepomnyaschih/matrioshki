@@ -5,7 +5,9 @@ KM.UI.Game.Status.SelectSource = KM.UI.Game.Status.extend({
         this.gameView.endTurnButton.show();
         
         this.gameView.game.map.getPlayerBorders(0).each(function(area) {
-            this.gameView.mapView.areaViews[area.index].highlight();
+            var view = this.gameView.mapView.areaViews[area.index];
+            view.highlight();
+            view.enable();
         }, this);
         
         this.gameView.broadcaster.bind("areaclicked", this._onAreaClicked, this);
