@@ -11,6 +11,7 @@ KM.UI.Game.Status.SelectTarget = KM.UI.Game.Status.extend({
     // override
     run: function()
     {
+        this.sourceAreaView.setLight(.9);
         this.sourceAreaView.area.borders.each(this._runArea, this);
         this.gameView.broadcaster.bind("areaclicked", this._onAreaClicked, this);
         
