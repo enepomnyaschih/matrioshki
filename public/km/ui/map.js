@@ -14,6 +14,7 @@ KM.UI.Map = JW.Svg.extend({
     {
         this._super();
         
+        this.areaViews = [];
         this.map.areas.each(this._renderArea, this);
     },
     

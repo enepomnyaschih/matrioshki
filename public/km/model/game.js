@@ -3,10 +3,10 @@ JW.ns("KM.Model");
 KM.Model.Game = JW.Model.extend({
     CHANGED             : "changed",    //handler(event, KM.Model.Area)
 
-    mapData             : null,         //[required] Object
+    mapData             : null,         //[optional] Object
 
     //private
-    map                 : null,         //[readonly] Array<KM.Model.Map>
+    map                 : null,         //[readonly] KM.Model.Map
     players             : null,         //[readonly] Array<KM.Model.Player>
     init: function(config /*Object*/) /*void*/
     {

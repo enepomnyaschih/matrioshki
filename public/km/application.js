@@ -15,7 +15,7 @@ KM.Application = JW.Svg.extend({
         this._super();
         
         // initialize model
-        //this.game = new KM.Model.Game();
+        this.game = new KM.Model.Game();
     },
     
     render: function()
@@ -25,13 +25,13 @@ KM.Application = JW.Svg.extend({
         this.paper.rect(0, 0, this.getWidth(), this.getHeight()).attr("fill", "black");
         
         // initialize UI
-        /*
+        
         this.gameView = new KM.UI.Game({
             game: this.game
         });
         
         this.addChild(this.gameView);
-        */
+        
     }
 });
 
