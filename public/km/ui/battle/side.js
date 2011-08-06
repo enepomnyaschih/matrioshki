@@ -39,10 +39,18 @@ KM.UI.Battle.Side = JW.Svg.extend({
     
     roll: function()
     {
+        var dices = Math.min(this.side.inPower, KM.Constants.UNIT_MAX_POWER - this.dicesDone);
+        for (var i = 0; i < dices; ++i)
+            this.dicesView.children[i].setPoints();
     },
     
     fixDice: function(index)
     {
+        this.dicesDone = index + 1;
+        if (index >= this.side.inPower)
+            return;
+        
+        this.dicesView.children[index].setPoints(this.side.dicePoints[index]);
     },
     
     showPoints: function()

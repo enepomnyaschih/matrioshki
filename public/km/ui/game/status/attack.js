@@ -25,7 +25,7 @@ KM.UI.Game.Status.Attack = KM.UI.Game.Status.extend({
             inPower : this.targetAreaView.area.power
         });
         
-        var battle = new KM.Model.Battle({
+        var battle = new KM.Model.Battle.Classic({
             attack  : attack,
             defence : defence
         });

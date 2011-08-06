@@ -30,6 +30,8 @@ KM.UI.Dice = JW.Svg.extend({
     
     setPoints: function(value)
     {
+        this.pointsView.paper.clear();
+        
         this.points = value || KM.Model.Battle.getDicePoints();
         
         var points = KM.UI.Dice.POINTS[this.points - 1];

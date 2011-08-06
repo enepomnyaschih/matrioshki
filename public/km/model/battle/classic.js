@@ -1,6 +1,6 @@
 JW.ns("KM.Model.Battle");
 
-KM.Model.Battle.Classic = KM.Model.Battle({
+KM.Model.Battle.Classic = KM.Model.Battle.extend({
     fight: function() /*void*/
     {
         this.attackWins = this.dropDices(this.attack) > this.dropDices(this.defence);
