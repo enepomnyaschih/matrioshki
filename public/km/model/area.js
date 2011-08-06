@@ -20,7 +20,7 @@ KM.Model.Area = JW.Model.extend({
         this.index = index;
     },
 
-    update: function(player /*KM.Model.Player*/, power /*Integer*/) /*void*/
+    update: function(player /*Integer*/, power /*Integer*/) /*void*/
     {
         this.player = player;
         this.power = power;

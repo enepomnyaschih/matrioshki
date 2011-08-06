@@ -13,9 +13,11 @@ KM.UI.Area = JW.Svg.extend({
         this._super();
         
         this._renderArea();
-        this._renderUnit();
+        this._updateUnit();
         
         this._clickHandler = this._onClick.inScope(this);
+        
+        this.area.bind("changed", this._onAreaChanged, this);
     },
     
     highlight: function()
@@ -52,8 +54,11 @@ KM.UI.Area = JW.Svg.extend({
         this._updateColor();
     },
     
-    _renderUnit: function()
+    _updateUnit: function()
     {
+        if (this.unitView)
+            this.unitView.destroy();
+        
         this.unitView = this.area.getPlayer().createUnitView({
             power   : this.area.power,
             x       : KM.Constants.modelToViewX(this.area.center[0]),
@@ -63,15 +68,21 @@ KM.UI.Area = JW.Svg.extend({
         this.addChild(this.unitView);
     },
     
-    _onClick: function()
-    {
-        this.broadcaster.trigger("areaclicked", this);
-    },
-    
     _updateColor: function()
     {
         var lighten = this.highlighted ? KM.Constants.AREA_LIGHTEN_HIGH : KM.Constants.AREA_LIGHTEN_STD;
         var color = JW.Colors.lighten(this.area.getPlayer().color, lighten);
         this.areaPath.attr("fill", color);
+    },
+    
+    _onAreaChanged: function()
+    {
+        this._updateColor();
+        this._updateUnit();
+    },
+    
+    _onClick: function()
+    {
+        this.broadcaster.trigger("areaclicked", this);
     }
 });

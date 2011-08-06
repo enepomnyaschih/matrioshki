@@ -24,8 +24,6 @@ KM.Model.Game = JW.Model.extend({
             game    : this,
             mapData : this.mapData
         });
-        
-        this.relay(this.map, "changed");
     },
 
     initPlayers: function() /*void*/

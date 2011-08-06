@@ -21,7 +21,6 @@ KM.Model.Map = JW.Model.extend({
         JW.each(this.mapData.areas, function(areaData, index) /*void*/
         {
             var area = new KM.Model.Area(this, index, areaData);
-            this.relay(area, "changed");
             this.areas.push(area);
         }, this);
     }
