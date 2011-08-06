@@ -1,7 +1,6 @@
 JW.ns("KM.Model.MapData");
 
 KM.Model.MapData.Default = {
-    playersCount: 2,
     playersAreas: [
         [{id:0,power:8}],
         [{id:2,power:8}]

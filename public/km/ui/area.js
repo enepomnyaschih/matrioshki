@@ -4,14 +4,14 @@ KM.UI.Area = JW.Svg.extend({
     area        : null,     // [required] KM.Model.Area
     
     areaPath    : null,     // [readonly] Raphael path
+    unitView    : null,     // [readonly] KM.UI.Unit
     
     render: function()
     {
         this._super();
         
-        this.setAttr("overflow", "visible");
-        
         this._renderArea();
+        this._renderUnit();
     },
     
     _renderArea: function()
@@ -27,5 +27,19 @@ KM.UI.Area = JW.Svg.extend({
             "fill"      : "#77a2d9",
             "stroke"    : null
         });
+    },
+    
+    _renderUnit: function()
+    {
+        if (!this.area.player)
+            return;
+        
+        this.unitView = this.area.player.createUnitView({
+            power   : this.area.power,
+            x       : KM.Constants.modelToViewX(this.area.center[0]),
+            y       : KM.Constants.modelToViewY(this.area.center[1])
+        });
+        
+        this.addChild(this.unitView);
     }
 });

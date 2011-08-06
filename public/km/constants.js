@@ -14,8 +14,10 @@ KM.ConstantsClass = JW.Class.extend({
     
     MAP_VIEW_TO_MODEL   : null,
     
+    UNIT_WIDTH          : 15,
+    UNIT_HEIGHT         : 15,
     UNIT_SCALE_MIN      : 1,
-    UNIT_SCALE_COEF     : .25,
+    UNIT_SCALE_COEF     : .4,
     
     init: function()
     {

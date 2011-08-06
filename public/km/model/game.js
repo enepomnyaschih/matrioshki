@@ -13,6 +13,7 @@ KM.Model.Game = JW.Model.extend({
         this._super(config);
         this.mapData = this.mapData || KM.Model.MapData.Default;
         this.initMap();
+        this.initPlayers();
     },
 
     initMap: function() /*void*/
@@ -25,19 +26,18 @@ KM.Model.Game = JW.Model.extend({
 
     initPlayers: function() /*void*/
     {
-        this.players = [];
-        for (var i = 0; i < this.mapData.playersCount; ++i)
-        {
-            this.players.push(new JW.Model.Player());
-        }
+        this.players = [
+            new KM.Model.Player.Human(),
+            new KM.Model.Player.Android()
+        ];
         
-        JW.each(this.playersData.playersAreas, function(areas /*Array<Object>*/, id /*Integer*/) /*void*/
+        JW.each(this.mapData.playersAreas, function(areas /*Array<Object>*/, id /*Integer*/) /*void*/
         {
             var player = this.players[id];
             JW.each(areas, function(area /*Object*/) /*void*/
             {
                 this.map.getArea(area.id).update(player, area.power);
             }, this);
-        })
+        }, this)
     }
 });

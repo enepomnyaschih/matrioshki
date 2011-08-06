@@ -6,17 +6,24 @@ KM.UI.Unit = JW.Svg.extend({
     headView    : null,     // [readonly] JW.Svg
     bodyView    : null,     // [readonly] JW.Svg
     
-    width       : 10,
-    height      : 10,
+    width       : KM.Constants.UNIT_WIDTH,
+    height      : KM.Constants.UNIT_HEIGHT,
     
     render: function()
     {
         this._super();
         
-        this.setAttr("overflow", "visible");
         this.setAttr("pointer-events", "none");
         
-        this._draw();
+        this.headView = new JW.Svg();
+        this.bodyView = new JW.Svg();
+        
+        this.addChild(this.headView);
+        this.addChild(this.bodyView);
+        
+        this._drawHead();
+        this._drawBody();
+        
         this._scale();
     },
     
@@ -27,9 +34,13 @@ KM.UI.Unit = JW.Svg.extend({
     },
     
     // virtual
-    _draw: function()
+    _drawHead: function()
     {
-        this.paper.rect(0, 0, 10, 10).attr("fill", "red");
+    },
+    
+    // virtual
+    _drawBody: function()
+    {
     },
     
     _scale: function()

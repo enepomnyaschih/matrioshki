@@ -4,6 +4,7 @@ JW.Svg = JW.Component.extend({
     width       : null, // [optional] Number
     height      : null, // [optional] Number
     visible     : true, // [optional] Boolean
+    clip        : false,// [optional] Boolean
     
     paper       : null, // [read-only] Raphael
     children    : null, // [read-only] Array of JW.Svg
@@ -24,6 +25,9 @@ JW.Svg = JW.Component.extend({
         this.setHeight(this.height);
         
         this.setVisible(this.visible);
+        
+        if (!this.clip)
+            this.setAttr("overflow", "visible");
     },
     
     destroyComponent: function()
@@ -207,6 +211,14 @@ JW.Svg = JW.Component.extend({
     line: function(x0, y0, x1, y1)
     {
         var path = this.paper.path("M" + x0 + " " + y0 + "L" + x1 + " " + y1);
+        path.node.removeAttribute("stroke");
+        path.node.removeAttribute("fill");
+        return path;
+    },
+    
+    path: function()
+    {
+        var path = this.paper.path.apply(this.paper, arguments);
         path.node.removeAttribute("stroke");
         path.node.removeAttribute("fill");
         return path;
