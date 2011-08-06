@@ -42,14 +42,16 @@ KM.UI.Game = JW.Svg.extend({
         {
             this.status.stop();
             this.status.destroy();
+            this._resetAreas();
         }
         
-        this._resetAreas();
         this.status = status;
-        this.status.gameView = this;
         
         if (this.status)
+        {
+            this.status.gameView = this;
             this.status.run();
+        }
     },
     
     _resetAreas: function()

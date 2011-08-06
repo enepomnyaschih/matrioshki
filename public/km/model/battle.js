@@ -28,3 +28,4 @@ KM.Model.Battle = JW.Model.extend({
     }
 });
 
+KM.Model.Battle.getDicePoints = KM.Model.Battle.prototype.getDicePoints;
