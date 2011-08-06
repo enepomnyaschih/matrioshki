@@ -4,8 +4,8 @@ KM.ConstantsClass = JW.Class.extend({
     VIEWPORT_WIDTH      : 800,
     VIEWPORT_HEIGHT     : 600,
     
-    MAP_MODEL_WIDTH     : 3,
-    MAP_MODEL_HEIGHT    : 1,
+    MAP_MODEL_WIDTH     : 1000,
+    MAP_MODEL_HEIGHT    : 1000,
     
     MAP_VIEW_X          : 0,
     MAP_VIEW_Y          : 0,
