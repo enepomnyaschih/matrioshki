@@ -6,8 +6,8 @@ KM.UI.Unit = JW.Svg.extend({
     headView    : null,     // [readonly] JW.Svg
     bodyView    : null,     // [readonly] JW.Svg
     
-    width       : KM.Constants.UNIT_WIDTH,
-    height      : KM.Constants.UNIT_HEIGHT,
+    width       : KM.Constants.UNIT_VIEW_SIZE,
+    height      : KM.Constants.UNIT_VIEW_SIZE,
     
     render: function()
     {
@@ -47,8 +47,7 @@ KM.UI.Unit = JW.Svg.extend({
     {
         var scale = this.power * KM.Constants.UNIT_SCALE_COEF + KM.Constants.UNIT_SCALE_MIN;
         var data = {
-            width   : this.getWidth()  / scale,
-            height  : this.getHeight() / scale
+            size: KM.Constants.UNIT_MODEL_SIZE / scale
         };
         
         this.setAttr("viewBox", this.templates.viewBox.apply(data));
@@ -56,5 +55,5 @@ KM.UI.Unit = JW.Svg.extend({
 });
 
 JW.Component.template(KM.UI.Unit, {
-    viewBox: $.template("0 0 ${width} ${height}")
+    viewBox: $.template("0 0 ${size} ${size}")
 });
