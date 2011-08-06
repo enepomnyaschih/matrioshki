@@ -17,6 +17,7 @@ KM.Model.Area = JW.Model.extend({
         this._super(data);
         
         this.map = map;
+        this.power = Math.floor(Math.random() * 2 + 1) + this.power;
         this.index = index;
     },
 
