@@ -1,7 +1,8 @@
 JW.ns("KM.Model");
 
 KM.Model.Area = JW.Model.extend({
-    CHANGED             : "changed",    //handler(event, KM.Model.Area)
+    PLAYERCHANGED       : "playerchanged",  // handler(event)
+    POWERCHANGED        : "powerchanged",   // handler(event)
     
     map                 : null,         //[required] KM.Model.Map
     index               : null,         //[required] Integer
@@ -20,11 +21,16 @@ KM.Model.Area = JW.Model.extend({
         this.index = index;
     },
 
-    update: function(player /*Integer*/, power /*Integer*/) /*void*/
+    setPlayer: function(value)
     {
-        this.player = player;
-        this.power = power;
-        this.trigger("changed");
+        this.player = value;
+        this.trigger("playerchanged");
+    },
+    
+    setPower: function(value)
+    {
+        this.power = value;
+        this.trigger("powerchanged");
     },
 
     getPlayer: function() /*KM.Model.Player*/

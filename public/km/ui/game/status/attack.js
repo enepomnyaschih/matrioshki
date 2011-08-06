@@ -21,6 +21,8 @@ KM.UI.Game.Status.Attack = KM.UI.Game.Status.extend({
     // override
     run: function()
     {
+        this.gameView.endTurnButton.hide();
+        
         var attack = new KM.Model.Battle.Side({
             player  : this.sourceArea.getPlayer(),
             inPower : this.sourceArea.power
@@ -51,11 +53,14 @@ KM.UI.Game.Status.Attack = KM.UI.Game.Status.extend({
     _onFinished: function()
     {
         if (this.battleView.battle.attackWins)
-            this.targetArea.update(this.sourceArea.player, this.sourceArea.power - 1);
+        {
+            this.targetArea.setPlayer(this.sourceArea.player);
+            this.targetArea.setPower(this.sourceArea.power - 1);
+        }
         
-        this.sourceArea.update(this.sourceArea.player, 1);
+        this.sourceArea.setPower(1);
         
         this.battleView.destroy();
-        this.gameView.setStatus(new KM.UI.Game.Status.SelectSource());
+        this.gameView.resetStatus();
     }
 });

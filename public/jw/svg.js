@@ -224,6 +224,14 @@ JW.Svg = JW.Component.extend({
         return path;
     },
     
+    rect: function()
+    {
+        var rect = this.paper.rect.apply(this.paper, arguments);
+        rect.node.removeAttribute("stroke");
+        rect.node.removeAttribute("fill");
+        return rect;
+    },
+    
     circle: function()
     {
         var circle = this.paper.circle.apply(this.paper, arguments);

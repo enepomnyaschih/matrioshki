@@ -2,6 +2,8 @@ KM.UI.Game.Status.SelectSource = KM.UI.Game.Status.extend({
     // override
     run: function()
     {
+        this.gameView.endTurnButton.show();
+        
         this.gameView.mapView.areaViews.each(this._runArea, this);
         this.gameView.broadcaster.bind("areaclicked", this._onAreaClicked, this);
     },
