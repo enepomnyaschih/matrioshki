@@ -64,6 +64,10 @@ KM.UI.Game.Status.Attack = KM.UI.Game.Status.extend({
         this.sourceArea.setPower(1);
         
         this.battleView.destroy();
-        this.gameView.resetStatus();
+        
+        if (JW.isSet(this.gameView.game.getWinner()))
+            this.gameView.setStatus(new KM.UI.Game.Status.EndGame());
+        else
+            this.gameView.resetStatus();
     }
 });

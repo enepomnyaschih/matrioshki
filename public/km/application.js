@@ -35,10 +35,16 @@ KM.Application = JW.Svg.extend({
     }
 });
 
-$(function() {
+function restartApplication()
+{
+    if (window.application)
+        window.application.destroy();
+    
     window.application = new KM.Application({
         renderTo: document.body
     });
     
     application.creationComplete();
-});
+}
+
+$(restartApplication);
