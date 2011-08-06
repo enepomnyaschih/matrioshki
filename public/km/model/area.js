@@ -2,12 +2,21 @@ JW.ns("KM.Model");
 
 KM.Model.Area = JW.Model.extend({
     CHANGED             : "changed",    //handler(event, KM.Model.Area)
+    
+    map                 : null,         //[required] KM.Model.Map
+    
     coordinates         : null,         //[required] Array<Array<Integer>>
     center              : null,         //[required] Array<Integer>
-
-    //private
-    player              : null,         //[readonly] KM.Model.Player
-    power               : null,         //[readonly] Integer
+    player              : null,         //[required] Integer
+    power               : null,         //[required] Integer
+    borders             : null,         //[required] Array<Integer>
+    
+    init: function(map, data)
+    {
+        this._super(data);
+        
+        this.map = map;
+    },
 
     update: function(player /*KM.Model.Player*/, power /*Integer*/) /*void*/
     {
@@ -16,47 +25,8 @@ KM.Model.Area = JW.Model.extend({
         this.trigger("changed");
     },
 
-    getPower: function() /*Integer*/
+    getPlayer: function() /*KM.Model.Player*/
     {
-        return this.power;
-    },
-
-    setPower: function(power /*Integer*/) /*void*/
-    {
-        this.power = power;
-        this.trigger("changed");
-    },
-
-    getPlayer: function() /*Integer*/
-    {
-        return this.player;
-    },
-
-    setPlayer: function(player /*KM.Model.Player*/) /*void*/
-    {
-        this.player = player;
-        this.trigger("changed");
-    },
-
-    getCoordinates: function()  /*Array<Array<Integer>>*/
-    {
-        return this.coordinates;
-    },
-
-    setCoordinates: function(coordinates /*Array<Array<Integer>>*/) /*void*/
-    {
-        this.coordinates = coordinates;
-        this.trigger("changed");
-    },
-
-    getCenter: function()  /*Array<Integer>*/
-    {
-        return this.center;
-    },
-
-    setCenter: function(center /*Integer*/) /*void*/
-    {
-        this.center = center;
-        this.trigger("changed");
+        return this.map.game.players[this.player];
     }
 });
