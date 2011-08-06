@@ -24,6 +24,8 @@ KM.UI.Game = JW.Svg.extend({
         
         this.broadcaster = new KM.UI.Broadcaster();
         
+        this.rect(0, 0, this.getWidth(), this.getHeight()).attr("fill", "white");
+        
         this.mapView = new KM.UI.Map({
             map         : this.game.map,
             broadcaster : this.broadcaster

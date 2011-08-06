@@ -86,8 +86,9 @@ KM.UI.Area = JW.Svg.extend({
         this._updateUnit();
     },
     
-    _onClick: function()
+    _onClick: function(event)
     {
+        event.stopPropagation();
         this.broadcaster.trigger("areaclicked", this);
     }
 });
