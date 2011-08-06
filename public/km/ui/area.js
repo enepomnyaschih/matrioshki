@@ -6,8 +6,9 @@ KM.UI.Area = JW.Svg.extend({
     
     areaPath    : null,     // [readonly] Raphael path
     unitView    : null,     // [readonly] KM.UI.Unit
-    highlighted : false,    // [readonly] Boolean
     enabled     : false,    // [readonly] Boolean
+    
+    light       : KM.Constants.AREA_LIGHTEN_STD,    // [optional] Number
     
     render: function()
     {
@@ -22,21 +23,9 @@ KM.UI.Area = JW.Svg.extend({
         this.area.bind("powerchanged",  this._onPowerChanged,  this);
     },
     
-    highlight: function()
+    setLight: function(value)
     {
-        if (this.highlighted)
-            return;
-        
-        this.highlighted = true;
-        this._updateColor();
-    },
-    
-    delight: function()
-    {
-        if (!this.highlighted)
-            return;
-        
-        this.highlighted = false;
+        this.light = JW.defn(value, KM.Constants.AREA_LIGHTEN_STD);
         this._updateColor();
     },
     
@@ -62,7 +51,7 @@ KM.UI.Area = JW.Svg.extend({
     
     reset: function()
     {
-        this.delight();
+        this.setLight();
         this.disable();
     },
     
@@ -94,8 +83,7 @@ KM.UI.Area = JW.Svg.extend({
     
     _updateColor: function()
     {
-        var lighten = this.highlighted ? KM.Constants.AREA_LIGHTEN_HIGH : KM.Constants.AREA_LIGHTEN_STD;
-        var color = JW.Colors.lighten(this.area.getPlayer().color, lighten);
+        var color = JW.Colors.lighten(this.area.getPlayer().color, this.light);
         this.areaPath.attr("fill", color);
     },
     
