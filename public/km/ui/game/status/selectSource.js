@@ -17,8 +17,14 @@ KM.UI.Game.Status.SelectSource = KM.UI.Game.Status.extend({
     _runArea: function(areaView)
     {
         if (areaView.area.player == 0 &&
-            areaView.area.power > 1)
+            areaView.area.power > 1 &&
+            areaView.area.borders.some(this._isEnemyArea, this))
             areaView.highlight();
+    },
+    
+    _isEnemyArea: function(index)
+    {
+        return this.gameView.game.map.areas[index].player == 1;
     },
     
     _onAreaClicked: function(event, areaView)
