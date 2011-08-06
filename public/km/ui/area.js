@@ -2,9 +2,11 @@ JW.ns("KM.UI");
 
 KM.UI.Area = JW.Svg.extend({
     area        : null,     // [required] KM.Model.Area
+    broadcaster : null,     // [required] KM.UI.Broadcaster
     
     areaPath    : null,     // [readonly] Raphael path
     unitView    : null,     // [readonly] KM.UI.Unit
+    highlighted : false,    // [readonly] Boolean
     
     render: function()
     {
@@ -12,6 +14,30 @@ KM.UI.Area = JW.Svg.extend({
         
         this._renderArea();
         this._renderUnit();
+        
+        this._clickHandler = this._onClick.inScope(this);
+    },
+    
+    highlight: function()
+    {
+        if (this.highlighted)
+            return;
+        
+        this.highlighted = true;
+        this.setAttr("cursor", "pointer");
+        this._updateColor();
+        this.el.bind("click", this._clickHandler);
+    },
+    
+    reset: function()
+    {
+        if (!this.highlighted)
+            return;
+        
+        this.highlighted = false;
+        this.removeAttr("cursor");
+        this._updateColor();
+        this.el.unbind("click", this._clickHandler);
     },
     
     _renderArea: function()
@@ -22,11 +48,8 @@ KM.UI.Area = JW.Svg.extend({
                     KM.Constants.modelToViewY(coord[1]);
         }
         
-        this.areaPath = this.paper.path("M" + this.area.coordinates.map(renderVertex).join("L"));
-        this.areaPath.attr({
-            "fill"      : JW.Colors.lighten(this.area.getPlayer().color, .5),
-            "stroke"    : null
-        });
+        this.areaPath = this.path("M" + this.area.coordinates.map(renderVertex).join("L"));
+        this._updateColor();
     },
     
     _renderUnit: function()
@@ -38,5 +61,17 @@ KM.UI.Area = JW.Svg.extend({
         });
         
         this.addChild(this.unitView);
+    },
+    
+    _onClick: function()
+    {
+        this.broadcaster.trigger("areaclicked", this);
+    },
+    
+    _updateColor: function()
+    {
+        var lighten = this.highlighted ? KM.Constants.AREA_LIGHTEN_HIGH : KM.Constants.AREA_LIGHTEN_STD;
+        var color = JW.Colors.lighten(this.area.getPlayer().color, lighten);
+        this.areaPath.attr("fill", color);
     }
 });

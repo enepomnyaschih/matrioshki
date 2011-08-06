@@ -19,6 +19,9 @@ KM.ConstantsClass = JW.Class.extend({
     UNIT_SCALE_MIN      : 1,
     UNIT_SCALE_COEF     : .4,
     
+    AREA_LIGHTEN_STD    : .4,
+    AREA_LIGHTEN_HIGH   : .7,
+    
     init: function()
     {
         this._super();

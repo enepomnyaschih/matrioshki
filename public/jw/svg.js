@@ -177,7 +177,7 @@ JW.Svg = JW.Component.extend({
     
     show: function()
     {
-        this.delAttr("visibility");
+        this.removeAttr("visibility");
     },
     
     hide: function()
@@ -203,7 +203,7 @@ JW.Svg = JW.Component.extend({
         return parseFloat(this.getAttr(name) || "0");
     },
     
-    delAttr: function(name)
+    removeAttr: function(name)
     {
         this.el[0].removeAttribute(name);
     },

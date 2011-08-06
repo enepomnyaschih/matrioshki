@@ -4,6 +4,7 @@ KM.Model.Area = JW.Model.extend({
     CHANGED             : "changed",    //handler(event, KM.Model.Area)
     
     map                 : null,         //[required] KM.Model.Map
+    index               : null,         //[required] Integer
     
     coordinates         : null,         //[required] Array<Array<Integer>>
     center              : null,         //[required] Array<Integer>
@@ -11,11 +12,12 @@ KM.Model.Area = JW.Model.extend({
     power               : null,         //[required] Integer
     borders             : null,         //[required] Array<Integer>
     
-    init: function(map, data)
+    init: function(map, index, data)
     {
         this._super(data);
         
         this.map = map;
+        this.index = index;
     },
 
     update: function(player /*KM.Model.Player*/, power /*Integer*/) /*void*/

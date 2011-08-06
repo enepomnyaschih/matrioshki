@@ -2,6 +2,7 @@ JW.ns("KM.UI");
 
 KM.UI.Map = JW.Svg.extend({
     map         : null,     // [required] KM.Model.Map
+    broadcaster : null,     // [required] KM.UI.Broadcaster
     
     areaViews   : null,     // [readonly] Array of KM.UI.Area
     
@@ -21,7 +22,8 @@ KM.UI.Map = JW.Svg.extend({
     _renderArea: function(area)
     {
         var areaView = new KM.UI.Area({
-            area: area
+            area        : area,
+            broadcaster : this.broadcaster
         });
         
         this.areaViews.push(areaView);
