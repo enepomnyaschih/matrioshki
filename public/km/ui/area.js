@@ -17,7 +17,8 @@ KM.UI.Area = JW.Svg.extend({
         
         this._clickHandler = this._onClick.inScope(this);
         
-        this.area.bind("changed", this._onAreaChanged, this);
+        this.area.bind("playerchanged", this._onPlayerChanged, this);
+        this.area.bind("powerchanged",  this._onPowerChanged,  this);
     },
     
     highlight: function()
@@ -75,14 +76,19 @@ KM.UI.Area = JW.Svg.extend({
         this.areaPath.attr("fill", color);
     },
     
-    _onAreaChanged: function()
+    _onPlayerChanged: function()
     {
         this._updateColor();
+    },
+    
+    _onPowerChanged: function()
+    {
         this._updateUnit();
     },
     
-    _onClick: function()
+    _onClick: function(event)
     {
+        event.stopPropagation();
         this.broadcaster.trigger("areaclicked", this);
     }
 });

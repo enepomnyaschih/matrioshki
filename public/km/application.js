@@ -24,8 +24,6 @@ KM.Application = JW.Svg.extend({
     {
         this._super();
         
-        this.paper.rect(0, 0, this.getWidth(), this.getHeight()).attr("fill", "black");
-        
         // initialize UI
         
         this.gameView = new KM.UI.Game({

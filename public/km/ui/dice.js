@@ -14,7 +14,7 @@ KM.UI.Dice = JW.Svg.extend({
         
         this.setAttr("pointer-events", "none");
         
-        this.path("M5 5L5 -5L-5 -5L-5 5").attr({
+        this.path("M5 5L5 -5L-5 -5L-5 5Z").attr({
             "fill"          : "white",
             "stroke"        : "black",
             "stroke-width"  : 1
