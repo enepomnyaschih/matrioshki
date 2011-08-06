@@ -51,7 +51,7 @@ KM.Model.MapData.DimaxionMap.Small = {
             "cityCount":0,
             "borders":[2,10,11]
         },
-        {
+        {//8
             "coordinates":[[550.96,300.01],[750.17,300.02],[650.46,482.54]],
             "center":[650.53,360.85],
             "player":null,

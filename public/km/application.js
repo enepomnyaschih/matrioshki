@@ -16,7 +16,7 @@ KM.Application = JW.Svg.extend({
         
         // initialize model
         this.game = new KM.Model.Game({
-            mapData         : KM.Model.MapData.DimaxionMap.Small
+            mapData         : KM.Model.MapData.DimaxionMap.SplittedCenter
         });
     },
     
