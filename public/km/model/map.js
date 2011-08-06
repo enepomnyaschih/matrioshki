@@ -12,17 +12,8 @@ KM.Model.Map = JW.Model.extend({
     {
         this._super(config);
         
-        this.initAreas();
-    },
-
-    initAreas: function() /*void*/
-    {
-        this.areas = [];
-        JW.each(this.mapData.areas, function(areaData, index) /*void*/
-        {
-            var area = new KM.Model.Area(this, index, areaData);
-            this.areas.push(area);
-        }, this);
+        this._initAreas();
+        this._generate();
     },
     
     getPlayerBorders: function(playerIndex, extraCondition, scope)
@@ -47,5 +38,49 @@ KM.Model.Map = JW.Model.extend({
         }
         
         return result;
+    },
+    
+    empowerPlayer: function(playerIndex)
+    {
+        var areas = [];
+        for (var i = 0; i < this.areas.length; ++i)
+        {
+            var area = this.areas[i];
+            if (area.player != playerIndex)
+                continue;
+            
+            if (area.power == KM.Constants.UNIT_MAX_POWER)
+                continue;
+            
+            areas.push(area);
+        }
+        
+        if (areas.length == 0)
+            return false;
+        
+        var luckyIndex = Math.floor(Math.random() * areas.length);
+        var luckyArea  = areas[luckyIndex];
+        luckyArea.setPower(luckyArea.power + 1);
+        
+        return true;
+    },
+
+    _initAreas: function() /*void*/
+    {
+        this.areas = [];
+        JW.each(this.mapData.areas, function(areaData, index) /*void*/
+        {
+            var area = new KM.Model.Area(this, index, areaData);
+            this.areas.push(area);
+        }, this);
+    },
+    
+    _generate: function()
+    {
+        for (var i = 0; i < 20; ++i)
+            this.empowerPlayer(0);
+        
+        for (var i = 0; i < 20; ++i)
+            this.empowerPlayer(1);
     }
 });

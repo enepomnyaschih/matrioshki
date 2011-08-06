@@ -22,27 +22,9 @@ KM.UI.Game.Status.EndTurn = KM.UI.Game.Status.extend({
             return this.gameView.nextPlayer();
         
         --this.power;
-        var areas = [];
-        var map = this.gameView.game.map;
-        for (var i = 0; i < map.areas.length; ++i)
-        {
-            var area = map.areas[i];
-            if (area.player != this.gameView.currentPlayer)
-                continue;
-            
-            if (area.power == KM.Constants.UNIT_MAX_POWER)
-                continue;
-            
-            areas.push(area);
-        }
-        
-        if (areas.length == 0)
-            return this.gameView.nextPlayer();
-        
-        var luckyIndex = Math.floor(Math.random() * areas.length);
-        var luckyArea  = areas[luckyIndex];
-        luckyArea.setPower(luckyArea.power + 1);
-        
-        setTimeout(this._checkPower.inScope(this), 100);
+        if (!this.gameView.game.map.empowerPlayer(this.gameView.currentPlayer))
+            this.gameView.nextPlayer();
+        else
+            setTimeout(this._checkPower.inScope(this), 100);
     }
 });
