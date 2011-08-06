@@ -4,7 +4,7 @@ KM.UI.Game.Status.AI = KM.UI.Game.Status.extend({
     {
         var areas;
         
-        areas = this.gameView.game.map.getPlayerBorders(1, this._noCity, this);
+        areas = this.gameView.game.map.getPlayerBorders(1);//, this._noCity, this);
         //if (areas.every(this._testCitiesOnly, this))
             //areas = this.gameView.game.map.getPlayerBorders(1, this._maxPower, this);
         
