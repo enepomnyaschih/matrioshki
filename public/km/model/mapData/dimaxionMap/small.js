@@ -1,6 +1,6 @@
 JW.ns("KM.Model.MapData.DimaxionMap");
 
-KM.Model.MapData.DimaxionMap.Default = {
+KM.Model.MapData.DimaxionMap.Small = {
     areas: [
         {
             "coordinates":[[232.91,105.29],[432,105.33],[332.56,288.08]],
