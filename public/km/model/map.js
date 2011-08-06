@@ -23,5 +23,29 @@ KM.Model.Map = JW.Model.extend({
             var area = new KM.Model.Area(this, index, areaData);
             this.areas.push(area);
         }, this);
+    },
+    
+    getPlayerBorders: function(playerIndex, extraCondition, scope)
+    {
+        function isAllyArea(index)
+        {
+            return this.areas[index].player == playerIndex;
+        }
+        
+        var result = [];
+        for (var i = 0; i < this.areas.length; ++i)
+        {
+            var area = this.areas[i];
+            if (area.player != 0 || area.power == 1 ||
+                area.borders.every(isAllyArea, this))
+                continue;
+            
+            if (extraCondition && !extraCondition.call(scope || this, area))
+                continue;
+            
+            result.push(area);
+        }
+        
+        return result;
     }
 });
