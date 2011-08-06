@@ -9,6 +9,7 @@ KM.UI.Area = JW.Svg.extend({
     enabled     : false,    // [readonly] Boolean
     
     light       : KM.Constants.AREA_LIGHTEN_STD,    // [optional] Number
+    jump        : 0,
     
     render: function()
     {
@@ -27,6 +28,12 @@ KM.UI.Area = JW.Svg.extend({
     {
         this.light = JW.defn(value, KM.Constants.AREA_LIGHTEN_STD);
         this._updateColor();
+    },
+    
+    setJump: function(value)
+    {
+        this.jump = value;
+        this._updateUnitPosition();
     },
     
     enable: function()
@@ -74,11 +81,16 @@ KM.UI.Area = JW.Svg.extend({
         
         this.unitView = this.area.getPlayer().createUnitView({
             power   : this.area.power,
-            x       : KM.Constants.modelToViewX(this.area.center[0]),
-            y       : KM.Constants.modelToViewY(this.area.center[1])
+            x       : KM.Constants.modelToViewX(this.area.center[0])
         });
         
         this.addChild(this.unitView);
+        this._updateUnitPosition();
+    },
+    
+    _updateUnitPosition: function()
+    {
+        this.unitView.setY(KM.Constants.modelToViewY(this.area.center[1]) - this.jump * 15);
     },
     
     _updateColor: function()
