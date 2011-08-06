@@ -9,7 +9,7 @@ KM.UI.Game.Status.SelectSource = KM.UI.Game.Status.extend({
     // override
     stop: function()
     {
-        this.gameView.broadcaster.bind("areaclicked", this._onAreaClicked, this);
+        this.gameView.broadcaster.unbind("areaclicked", this._onAreaClicked, this);
     },
     
     _runArea: function(areaView)
@@ -21,6 +21,6 @@ KM.UI.Game.Status.SelectSource = KM.UI.Game.Status.extend({
     
     _onAreaClicked: function(event, areaView)
     {
-        alert(areaView.area.index);
+        this.gameView.setStatus(new KM.UI.Game.Status.SelectTarget(areaView));
     }
 });
