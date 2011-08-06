@@ -32,11 +32,12 @@ KM.UI.Game.Status.EndGame = KM.UI.Game.Status.extend({
         
         //var light = (Math.sin(3 * Math.PI * this.animation) + 2) / 4;
         var jump = Math.max(0, Math.sin(4 * Math.PI * this.animation));
+        var headJump = Math.max(0, Math.sin(4 * Math.PI * this.animation - Math.PI / 2) - .5);
         
         this.gameView.mapView.areaViews.each(function(areaView) {
             //areaView.setLight(light);
             if (areaView.area.player == this.gameView.game.winner)
-                areaView.setJump(jump);
+                areaView.setJump(jump, headJump);
         }, this);
         
         this.gameView.paper.safari();

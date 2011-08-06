@@ -10,6 +10,7 @@ KM.UI.Area = JW.Svg.extend({
     
     light       : KM.Constants.AREA_LIGHTEN_STD,    // [optional] Number
     jump        : 0,
+    headJump    : 0,
     
     render: function()
     {
@@ -30,9 +31,10 @@ KM.UI.Area = JW.Svg.extend({
         this._updateColor();
     },
     
-    setJump: function(value)
+    setJump: function(jump, headJump)
     {
-        this.jump = value;
+        this.jump = jump;
+        this.headJump = headJump;
         this._updateUnitPosition();
     },
     
@@ -91,6 +93,7 @@ KM.UI.Area = JW.Svg.extend({
     _updateUnitPosition: function()
     {
         this.unitView.setY(KM.Constants.modelToViewY(this.area.center[1]) - this.jump * 15);
+        this.unitView.headView.setY(-this.headJump * 4);
     },
     
     _updateColor: function()
