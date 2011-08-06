@@ -68,8 +68,6 @@ KM.UI.Game.Status.EndTurn = KM.UI.Game.Status.extend({
             result = Math.max(result, temp);
         }
 
-        console.log(result);
-
         return result;
     },
     
