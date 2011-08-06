@@ -30,7 +30,6 @@ KM.UI.Game.Status.SelectTarget = KM.UI.Game.Status.extend({
     
     _onAreaClicked: function(event, areaView)
     {
-        alert("Attack from " + this.sourceAreaView.area.index + " to " + areaView.area.index);
-        //this.gameView.setStatus(new KM.UI.Game.Status.Attack(this.sourceAreaView, areaView));
+        this.gameView.setStatus(new KM.UI.Game.Status.Attack(this.sourceAreaView, areaView));
     }
 });

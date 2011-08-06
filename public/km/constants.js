@@ -10,7 +10,7 @@ KM.ConstantsClass = JW.Class.extend({
     MAP_VIEW_X          : 0,
     MAP_VIEW_Y          : 0,
     MAP_VIEW_WIDTH      : 800,
-    MAP_VIEW_HEIGHT     : 500,
+    MAP_VIEW_HEIGHT     : 450,
     
     MAP_VIEW_TO_MODEL   : null,
     
@@ -18,9 +18,14 @@ KM.ConstantsClass = JW.Class.extend({
     UNIT_VIEW_SIZE      : 15,
     UNIT_SCALE_MIN      : 1,
     UNIT_SCALE_COEF     : .4,
+    UNIT_MAX_LEVEL      : 8,
     
     AREA_LIGHTEN_STD    : .4,
     AREA_LIGHTEN_HIGH   : .7,
+    
+    BATTLE_VIEW_X       : 80,
+    BATTLE_VIEW_Y       : 470,
+    BATTLE_DICES_Y      : 30,
     
     init: function()
     {
