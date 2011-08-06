@@ -5,10 +5,9 @@ KM.UI.Game.Status.AI = KM.UI.Game.Status.extend({
         var areas;
         
         areas = this.gameView.game.map.getPlayerBorders(1, this._noCity, this);
-        if (this._selectSourceArea(areas))
-            return;
+        //if (areas.every(this._testCitiesOnly, this))
+            //areas = this.gameView.game.map.getPlayerBorders(1, this._maxPower, this);
         
-        areas = this.gameView.game.map.getPlayerBorders(1, this._maxPower, this);
         if (this._selectSourceArea(areas))
             return;
         
@@ -54,6 +53,11 @@ KM.UI.Game.Status.AI = KM.UI.Game.Status.extend({
         ));
         
         return true;
+    },
+    
+    _testCitiesOnly: function(area)
+    {
+        return area.cityCount || area.player == 0;
     },
     
     _noCity: function(area)

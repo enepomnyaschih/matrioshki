@@ -77,10 +77,28 @@ KM.Model.Map = JW.Model.extend({
     
     _generate: function()
     {
+        this._arrangePlayers();
+        
         for (var i = 0; i < 20; ++i)
             this.empowerPlayer(0);
         
         for (var i = 0; i < 20; ++i)
             this.empowerPlayer(1);
+    },
+    
+    _arrangePlayers: function()
+    {
+        var areas = this.areas.filter(function(area) {
+            return !JW.isSet(area.player);
+        }, this);
+        
+        for (var i = 0; i < areas.length; ++i)
+        {
+            var j = i + Math.floor(Math.random() * (areas.length - i));
+            var a = areas[i];
+            areas[i] = areas[j];
+            areas[j] = a;
+            areas[i].player = i % 2;
+        }
     }
 });
