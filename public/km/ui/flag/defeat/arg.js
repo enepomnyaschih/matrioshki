@@ -1,6 +1,6 @@
 JW.ns("KM.UI");
 
-KM.UI.Flag.Arg = KM.UI.Flag.extend({
+KM.UI.Flag.Defeat.Arg = KM.UI.Flag.extend({
     _drawFlag: function()
     {
     	var flag = new JW.Svg({
@@ -8,7 +8,7 @@ KM.UI.Flag.Arg = KM.UI.Flag.extend({
             height: 15
         });
 
-        this.view.addChild(flag);
+        this.addChild(flag);
 
         var dx = -303 / 2;
         var dy = -861 - 191 / 2;

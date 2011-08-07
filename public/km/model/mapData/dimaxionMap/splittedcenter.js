@@ -18,14 +18,14 @@ KM.Model.MapData.DimaxionMap.SplittedCenter = {
         },
         {//3
             "coordinates":[[438,109],[538,292],[338,292]],
-            "center":[438,231],
+            "center":[438,181],
             "player":1,
             "cityCount":3,
             "borders":[0,1,6]
         },
         {//4
             "coordinates":[[862,109],[962,292],[763,292]],
-            "center":[862,231],
+            "center":[822,251],
             "player":1,
             "cityCount":2,
             "borders":[8]
@@ -137,7 +137,7 @@ KM.Model.MapData.DimaxionMap.SplittedCenter = {
         },
         {
             "coordinates":[[226,498],[325,681],[126,681]],
-            "center":[226,620],
+            "center":[246,630],
             "player":1,
             "cityCount":1,
             "borders":[15,21]
@@ -182,36 +182,36 @@ KM.Model.MapData.DimaxionMap.SplittedCenter = {
     
     flags: [
         {
-            "coordinates":[463.93,251.72],
-            "country":"cze",
+            "coordinates":[487.11,265.73],
+            "country":"Ger",
             "area":2
         }, {
-            "coordinates":[487.11,251.73],
-            "country":"ger",
+            "coordinates":[463.93,271.72],
+            "country":"Cze",
             "area":2
         }, {
-            "coordinates":[417.17,262.35],
-            "country":"izr",
+            "coordinates":[415.17,282.35],
+            "country":"Izr",
             "area":2
         }, {
             "coordinates":[906.85,245.70],
-            "country":"bra",
+            "country":"Bra",
             "area":3
         }, {
             "coordinates":[931.53,266.19],
-            "country":"arg",
+            "country":"Arg",
             "area":3
         }, {
-            "coordinates":[501.99,312.01],
-            "country":"rus",
+            "coordinates":[501.99,332.01],
+            "country":"Rus",
             "area":6
         }, {
-            "coordinates":[468.63,508.00],
-            "country":"jap",
+            "coordinates":[508.63,530.00],
+            "country":"Jap",
             "area":17
         }, {
             "coordinates":[211.59,612.76],
-            "country":"aus",
+            "country":"Aus",
             "area":19
         }
     ]
