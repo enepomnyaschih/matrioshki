@@ -210,10 +210,7 @@ JW.Svg = JW.Component.extend({
     
     line: function(x0, y0, x1, y1)
     {
-        var path = this.paper.path("M" + x0 + " " + y0 + "L" + x1 + " " + y1);
-        path.node.removeAttribute("stroke");
-        path.node.removeAttribute("fill");
-        return path;
+        return this.path("M" + x0 + " " + y0 + "L" + x1 + " " + y1);
     },
     
     path: function()

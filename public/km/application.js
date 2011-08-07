@@ -17,14 +17,23 @@ KM.Application = JW.Svg.extend({
         
         this._renderManual();
         this.restart();
+        
         /*
         var flags = [ "Arg", "Bra", "Aus", "Cze", "Ger", "Izr", "Jap", "Rus" ];
         for (var i = 0; i < flags.length; ++i)
         {
-            var cls = KM.UI.Flag[flags[i]];
+            var cls = KM.UI.Flag.Victory[flags[i]];
             var flag = new cls({
                 x: 50 * (i + 1),
                 y: 50
+            });
+            this.addChild(flag);
+            flag.creationComplete();
+            
+            var cls = KM.UI.Flag.Defeat[flags[i]];
+            var flag = new cls({
+                x: 50 * (i + 1),
+                y: 100
             });
             this.addChild(flag);
             flag.creationComplete();
