@@ -47,8 +47,8 @@ KM.Model.MapData.DimaxionMap.SplittedCenter = {
         {//7
             "coordinates":[[338,300],[538,300],[438,482]],
             "center":[438,360],
-            "player":null,
-            "cityCount":0,
+            "player":0,
+            "cityCount":1,
             "borders":[2,10,11]
         },
         {//8
@@ -124,7 +124,7 @@ KM.Model.MapData.DimaxionMap.SplittedCenter = {
         {
             "coordinates":[[445,494],[644,494],[544,677]],
             "center":[544,555],
-            "player":0,
+            "player":1,
             "cityCount":1,
             "borders":[11,22]
         },
