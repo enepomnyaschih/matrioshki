@@ -1,6 +1,4 @@
-JW.ns("KM.UI");
-
-KM.UI.Flag.Defeat.Arg = KM.UI.Flag.extend({
+KM.UI.Flag.Defeat.Arg = KM.UI.Flag.Defeat.extend({
     _drawFlag: function()
     {
     	var flag = new JW.Svg({
