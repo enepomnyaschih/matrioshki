@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+        
+        <title>Manual - Matreshki vs Androids</title>
+    </head>
+    <body>
+        <h1>Matreshki vs Androids</h1>
+        <h2>History</h2>
+        <p>Androids got out of control and captured all GDD hosting locations excepting Moscow. And only
+        <a href="http://en.wikipedia.org/wiki/Matryoshka_doll">Russian matreshki</a> can fix androids up and safe the feast!</p>
+        <h2>Goals of the game</h2>
+        <ol>
+            <li>Secure all GDD hosting locations</li>
+            <li>Don't let Androids to capture all GDD hosting locations</li>
+        </ol>
+        <h2>Game rules</h2>
+        <ol>
+            <li>2 players participate in the game: human vs AI</li>
+            <li>Human controls matreshki</li>
+            <li>AI controls androids</li>
+            <li>Game map is split to 25 areas</li>
+            <li>Each area is under control of some player initially:
+                <ol>
+                    <li>Moscow area is under control of matreshki</li>
+                    <li>Other GDD hosting areas are under control of androids</li>
+                    <li>Remaining areas are arranged among players randomly in 3:1 (androids:matreshki) relation</li>
+                </ol>
+            </li>
+            <li>There is a unit in each area: matreshka or android.</li>
+            <li>Units have different sizes: there are 8 levels of unit size</li>
+            <li>Human player makes first turn</li>
+            <li>While player has turn on, he can make any number of attacks</li>
+            <li>To attack, player must click source area and then click target area:
+                <ol>
+                    <li>Source and target areas must be adjacent</li>
+                    <li>Source area must belong to current player</li>
+                    <li>Target area must belong to enemy player</li>
+                    <li>Source area must have unit of at least 2'nd level</li>
+                </ol>
+            </li>
+            <li>Attack happens automatically in the next order:
+                <ol>
+                    <li>Each player is rolling the dices</li>
+                    <li>Number of dices equals to level of corresponding unit</li>
+                    <li>Dices' points are summed</li>
+                    <li>If attacking player has more points, then he wins the battle:
+                        <ol>
+                            <li>Attacking player captures the area</li>
+                            <li>Attacking unit's level is decreased by 1 and he moves to captured area</li>
+                            <li>Attacking area gets the unit of 1'st level</li>
+                        </ol>
+                    <li>Else attacking player retreats:
+                        <ol>
+                            <li>Attacking area's unit is weakened to 1'st level</li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li>Player can click "End Turn" button if he doesn't want to attack anymore:
+                <ol>
+                    <li>Current player gets reinforcements:
+                        <ol>
+                            <li>The maximum number of joined areas under player's control is calculated</li>
+                            <li>Random units under player's control grow by the same number of levels</li>
+                            <li>No units grow over 8'th level</li>
+                        </ol>
+                    </li>
+                    <li>Another player starts his turn</li>
+                </ol>
+            </li>
+            <li>If player secures all GDD hosting areas, he wins the game</li>
+            <li>Difficulty level slightly grows with every human player's victory (androids have more power initially)</li>
+        </ol>
+    </body>
+</html>
