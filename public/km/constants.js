@@ -31,6 +31,11 @@ KM.ConstantsClass = JW.Class.extend({
     BATTLE_VIEW_X       : 80,
     BATTLE_VIEW_Y       : 460,
     BATTLE_DICES_Y      : 35,
+
+    BUTTONX             : 630,
+    BUTTONY             : 430,
+
+    FONT_FAMILY         : "\"DroidSans\", Arial",
     
     init: function()
     {

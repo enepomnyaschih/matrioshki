@@ -16,17 +16,12 @@ KM.UI.Manual = JW.Svg.extend({
         
         this.paper.text(
             400, 220,
-            "Androids got out of control and captured all GDD hosting\n" +
-            "locations excepting Moscow. And only Russian matreshki\n" +
-            "can fix androids up and safe the feast!\n \n" +
-            "- Secure all GDD hosting locations -\n" +
-            "- Don't let Androids to capture all GDD hosting locations -\n \n" +
-            "Click to continue..."
+            KM.Locale.Manual
         ).attr({
             "cursor"        : "default",
             "fill"          : "#000088",
             "font-size"     : 28,
-            "font-family"   : "Comic Sans MS"
+            "font-family"   : KM.Constants.FONT_FAMILY
         });
         
         this.el.click(this._onClick.inScope(this));

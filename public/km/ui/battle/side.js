@@ -63,7 +63,7 @@ KM.UI.Battle.Side = JW.Svg.extend({
         this.paper.text(15, 0, power.toString()).attr({
             "fill"          : this.side.player.unitColor,
             "font-size"     : 20,
-            "font-family"   : "Comic Sans MS,serif"
+            "font-family"   : KM.Constants.FONT_FAMILY
         });
     },
     

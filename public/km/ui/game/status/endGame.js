@@ -16,9 +16,9 @@ KM.UI.Game.Status.EndGame = KM.UI.Game.Status.extend({
         this._timer = setInterval(this._animate.inScope(this), 40);
         
         this.restartButton = new KM.UI.Button({
-            text    : "Restart",
-            x       : 600,
-            y       : 500,
+            text    : KM.Locale.Restart,
+            x       : KM.Constants.BUTTONX,
+            y       : KM.Constants.BUTTONY,
             width   : 150,
             height  : 40
         });
