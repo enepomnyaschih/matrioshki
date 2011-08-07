@@ -6,6 +6,13 @@ KM.UI.Game.Status.EndGame = KM.UI.Game.Status.extend({
     // override
     run: function()
     {
+        var mapView = this.gameView.mapView;
+        mapView.rect(15, 41, mapView.getWidth() - 30, mapView.getHeight() - 54).attr({
+            "fill"          : "none",
+            "stroke"        : "#BBBBBB",
+            "stroke-width"  : 1
+        });
+        
         this._timer = setInterval(this._animate.inScope(this), 40);
         
         this.restartButton = new KM.UI.Button({
@@ -38,9 +45,22 @@ KM.UI.Game.Status.EndGame = KM.UI.Game.Status.extend({
             //areaView.setLight(light);
             if (areaView.area.player == this.gameView.game.winner)
                 areaView.setJump(jump, headJump);
+            
+            if (this.gameView.game.winner == 0)
+                areaView.setColor(JW.Colors.lighten(this._getAreaColor(areaView.area.center[1]), Math.max(0, Math.min(1, 1 - 0.5 * this.animation))));
         }, this);
         
         this.gameView.paper.safari();
+    },
+    
+    _getAreaColor: function(y)
+    {
+        if (y < 300)
+            return "#F3F3F3";
+        else if (y < 500)
+            return "blue";
+        else
+            return "#DD0000";
     },
     
     _onRestartClick: function()

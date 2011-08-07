@@ -7,6 +7,7 @@ KM.UI.Area = JW.Svg.extend({
     areaPath    : null,     // [readonly] Raphael path
     unitView    : null,     // [readonly] KM.UI.Unit
     enabled     : false,    // [readonly] Boolean
+    color       : null,     // [readonly] String
     
     light       : KM.Constants.AREA_LIGHTEN_STD,    // [optional] Number
     jump        : 0,
@@ -36,6 +37,12 @@ KM.UI.Area = JW.Svg.extend({
         this.jump = jump;
         this.headJump = headJump;
         this._updateUnitPosition();
+    },
+    
+    setColor: function(color)
+    {
+        this.color = color;
+        this._updateColor();
     },
     
     enable: function()
@@ -98,7 +105,7 @@ KM.UI.Area = JW.Svg.extend({
     
     _updateColor: function()
     {
-        var color = JW.Colors.lighten(this.area.getPlayer().color, this.light);
+        var color = JW.Colors.lighten(this.color || this.area.getPlayer().color, this.light);
         this.areaPath.attr("fill", color);
     },
     
