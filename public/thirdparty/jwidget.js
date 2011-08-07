@@ -2390,7 +2390,7 @@ JW.Observable = JW.Class.extend({
         if (!listeners)
             return;
         
-        triggers = listeners.concat();
+        var triggers = listeners.concat();
         
         // Unbind disposable listeners
         for (var i = 0; i < listeners.length; ++i)
