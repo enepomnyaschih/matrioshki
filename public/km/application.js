@@ -5,41 +5,52 @@ KM.Application = JW.Svg.extend({
     game        : null,     // [readonly] KM.Model.Game
     
     // UI
+    manualView  : null,     // [readonly] KM.UI.Manual
     gameView    : null,     // [readonly] KM.UI.Game
     
     width       : KM.Constants.VIEWPORT_WIDTH,
     height      : KM.Constants.VIEWPORT_HEIGHT,
     
-    initComponent: function()
+    creationComplete: function()
     {
         this._super();
         
-        // initialize model
+        this._renderManual();
+        this.restart();
+    },
+    
+    restart: function()
+    {
+        if (this.gameView)
+            this.gameView.destroy();
+        
         this.game = new KM.Model.Game({
             mapData         : KM.Model.MapData.DimaxionMap.SplittedCenter
         });
-    },
-    
-    render: function()
-    {
-        this._super();
-        
-        // initialize UI
         
         this.gameView = new KM.UI.Game({
             game: this.game
         });
         
-        this.addChild(this.gameView);
+        this.addChildAt(this.gameView, 0);
         
+        this.gameView.creationComplete();
+    },
+    
+    _renderManual: function()
+    {
+        if ($.cookie("kmmanual") == "1")
+            return;
+        
+        this.manualView = new KM.UI.Manual();
+        this.addChild(this.manualView);
+        
+        this.manualView.creationComplete();
     }
 });
 
-function restartApplication()
+function startApplication()
 {
-    if (window.application)
-        window.application.destroy();
-    
     window.application = new KM.Application({
         renderTo: ".game"
     });
@@ -47,4 +58,4 @@ function restartApplication()
     application.creationComplete();
 }
 
-$(restartApplication);
+$(startApplication);

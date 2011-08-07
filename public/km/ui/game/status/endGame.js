@@ -46,6 +46,6 @@ KM.UI.Game.Status.EndGame = KM.UI.Game.Status.extend({
     _onRestartClick: function()
     {
         this.gameView.setStatus(null);
-        restartApplication();
+        application.restart();
     }
 });

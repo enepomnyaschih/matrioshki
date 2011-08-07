@@ -53,13 +53,13 @@ JW.Svg = JW.Component.extend({
     
     addChildAt: function(child, index)
     {
-        if (!this.children && !index)
+        if (!this.children.length && !index)
             return this.addChild(child);
         
         if (!index)
-            this.children[0].before(child.el);
+            this.children[0].el.before(child.el);
         else
-            this.children[index - 1].after(child.el);
+            this.children[index - 1].el.after(child.el);
         
         this.children.splice(index, 0, child);
         child.parent = this;
