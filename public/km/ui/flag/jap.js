@@ -1,6 +1,6 @@
 JW.ns("KM.UI");
 
-KM.UI.Flag.Japan = KM.UI.Flag.extend({
+KM.UI.Flag.Jap = KM.UI.Flag.extend({
     _drawFlag: function()
     {
     	var flag = new JW.Svg();
