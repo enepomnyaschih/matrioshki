@@ -178,5 +178,41 @@ KM.Model.MapData.DimaxionMap.SplittedCenter = {
             "cityCount":0,
             "borders":[11,12,7,23]
         }
+    ],
+    
+    flags: [
+        {
+            "coordinates":[463.93,251.72],
+            "country":"czech",
+            "area":2
+        }, {
+            "coordinates":[487.11,251.73],
+            "country":"germany",
+            "area":2
+        }, {
+            "coordinates":[417.17,262.35],
+            "country":"israel",
+            "area":2
+        }, {
+            "coordinates":[906.85,245.70],
+            "country":"brazil",
+            "area":3
+        }, {
+            "coordinates":[931.53,266.19],
+            "country":"argentina",
+            "area":3
+        }, {
+            "coordinates":[501.99,312.01],
+            "country":"russia",
+            "area":6
+        }, {
+            "coordinates":[468.63,508.00],
+            "country":"japan",
+            "area":17
+        }, {
+            "coordinates":[211.59,612.76],
+            "country":"australia",
+            "area":19
+        }
     ]
 };

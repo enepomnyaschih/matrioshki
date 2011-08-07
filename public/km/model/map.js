@@ -7,13 +7,16 @@ KM.Model.Map = JW.Model.extend({
     mapData             : null,         //[required] Object
     
     areas               : null,         //[readonly] Array<KM.Model.Area>
+    flags               : null,         //[readonly] Array<KM.Model.Flag>
     
     init: function(config /*Object*/) /*void*/
     {
         this._super(config);
         
         this._initAreas();
+        this._initFlags();
         this._generate();
+        this._attachFlags();
     },
     
     getPlayerBorders: function(playerIndex, extraCondition, scope)
@@ -75,6 +78,16 @@ KM.Model.Map = JW.Model.extend({
         }, this);
     },
     
+    _initFlags: function()
+    {
+        this.flags = [];
+        JW.each(this.mapData.flags, function(flagData, index) /*void*/
+        {
+            var flag = new KM.Model.Flag(this, index, flagData);
+            this.flags.push(flag);
+        }, this);
+    },
+    
     _generate: function()
     {
         this._arrangePlayers();
@@ -100,5 +113,11 @@ KM.Model.Map = JW.Model.extend({
             areas[j] = a;
             areas[i].player =  (i % 4) == 0 ? 0 : 1;
         }
+    },
+    
+    _attachFlags: function()
+    {
+        for (var i = 0; i < this.flags.length; ++i)
+            this.flags[i].attach();
     }
 });

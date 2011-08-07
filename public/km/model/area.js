@@ -39,5 +39,10 @@ KM.Model.Area = JW.Model.extend({
     getPlayer: function() /*KM.Model.Player*/
     {
         return this.map.game.players[this.player];
+    },
+    
+    getFlags: function()
+    {
+        return this.map.flags.filterBy("area", this.index);
     }
 });
