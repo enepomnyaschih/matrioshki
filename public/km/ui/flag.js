@@ -9,7 +9,7 @@ KM.UI.Flag = JW.Svg.extend({
     width       : KM.Constants.FLAG_VIEW_SIZE,
     height      : KM.Constants.FLAG_VIEW_SIZE,
     
-    render: function()
+    creationComplete: function()
     {
         this._super();
         
@@ -21,7 +21,7 @@ KM.UI.Flag = JW.Svg.extend({
         
         this._drawFlag();
         
-        this._scale();
+        //this._scale();
     },
     
     // virtual

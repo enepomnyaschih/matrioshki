@@ -30,7 +30,10 @@ KM.UI.Unit.Matreshka = KM.UI.Unit.extend({
 
         var path = svg.path("M -58, 73 c 1.74531,18.57608 9.24722,34.63648 21.15556,45.73398 l 73.84375,0 c 11.90834,-11.0975 20.62466,-27.1579 22.37569,-45.73398 -37.1288,-5.90427 -76.85034,-5.59863 -117.375,0 z");
         
-        var flower = new JW.Svg();
+        var flower = new JW.Svg({
+            width: 20,
+            height: 20
+        });
         svg.addChild(flower);
         flower.setAttr("viewBox", "0 30 " + this.FLOWERSCALE + " " + this.FLOWERSCALE);
         flower.setXY(-40, 23);

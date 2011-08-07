@@ -3,7 +3,10 @@ JW.ns("KM.UI");
 KM.UI.Flag.Cze = KM.UI.Flag.extend({
     _drawFlag: function()
     {
-    	var flag = new JW.Svg();
+    	var flag = new JW.Svg({
+            width: 15,
+            height: 15
+        });
 
         this.view.addChild(flag);
 
