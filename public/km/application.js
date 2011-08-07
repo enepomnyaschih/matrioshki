@@ -17,7 +17,7 @@ KM.Application = JW.Svg.extend({
         
         this._renderManual();
         this.restart();
-        
+        /*
         var flags = [ "Arg", "Bra", "Aus", "Cze", "Ger", "Izr", "Jap", "Rus" ];
         for (var i = 0; i < flags.length; ++i)
         {
@@ -28,8 +28,7 @@ KM.Application = JW.Svg.extend({
             });
             this.addChild(flag);
             flag.creationComplete();
-            ++i;
-        }
+        }*/
     },
     
     restart: function()
