@@ -19,6 +19,8 @@ KM.ConstantsClass = JW.Class.extend({
     UNIT_SCALE_MIN      : 1,
     UNIT_SCALE_COEF     : .4,
     UNIT_MAX_POWER      : 8,
+
+    FLAG_VIEW_SIZE      : 15,
     
     DICE_VIEW_SIZE      : 20,
     
