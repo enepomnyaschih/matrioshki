@@ -1,5 +1,7 @@
 KM.Model.Player.Android = KM.Model.Player.extend({
-    color       : "#97C03E",
+    index       : 1,
+    color       : "#F2ED6A",
+    unitColor   : "#97C03E",
     
     // override
     createUnitView: function(config)

@@ -41,7 +41,7 @@ function restartApplication()
         window.application.destroy();
     
     window.application = new KM.Application({
-        renderTo: document.body
+        renderTo: ".game"
     });
     
     application.creationComplete();

@@ -1,5 +1,7 @@
 KM.Model.Player.Human = KM.Model.Player.extend({
-    color       : "#FF0000",
+    index       : 0,
+    color       : "#77a2d9",
+    unitColor   : "#FF0000",
     
     // override
     createUnitView: function(config)

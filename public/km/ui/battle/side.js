@@ -61,7 +61,7 @@ KM.UI.Battle.Side = JW.Svg.extend({
             power += this.side.dicePoints[i];
         
         this.paper.text(15, 0, power.toString()).attr({
-            "fill"          : this.side.player.color,
+            "fill"          : this.side.player.unitColor,
             "font-size"     : 20,
             "font-family"   : "Comic Sans MS,serif"
         });
