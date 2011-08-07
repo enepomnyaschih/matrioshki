@@ -15,7 +15,7 @@ KM.UI.Manual = JW.Svg.extend({
         });
         
         this.paper.text(
-            400, 260,
+            400, 220,
             "Androids got out of control and captured all GDD hosting\n" +
             "locations excepting Moscow. And only Russian matreshki\n" +
             "can fix androids up and safe the feast!\n \n" +
