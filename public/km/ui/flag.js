@@ -12,7 +12,7 @@ KM.UI.Flag = JW.Svg.extend({
         
         this._drawFlag();
         
-        this.children[0].setXY(-16, -15);
+        this.children[0].setXY(-16, this.yOffset);
         
         this.line(0, 0, 0, -25).attr({
             "stroke": "#888800"
@@ -28,6 +28,3 @@ KM.UI.Flag = JW.Svg.extend({
 JW.Component.template(KM.UI.Flag, {
     viewBox: $.template("0 0 ${size} ${size}")
 });
-
-JW.ns("KM.UI.Flag.Defeat");
-JW.ns("KM.UI.Flag.Victory");

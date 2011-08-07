@@ -1,6 +1,4 @@
-JW.ns("KM.UI");
-
-KM.UI.Flag.Victory.Cze = KM.UI.Flag.extend({
+KM.UI.Flag.Victory.Cze = KM.UI.Flag.Victory.extend({
     _drawFlag: function()
     {
     	var flag = new JW.Svg({
