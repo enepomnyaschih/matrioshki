@@ -70,9 +70,24 @@
         <script type="text/javascript" charset="utf-8" src="km/ui/unit.js"></script>
         <script type="text/javascript" charset="utf-8" src="km/ui/unit/android.js"></script>
         <script type="text/javascript" charset="utf-8" src="km/ui/unit/matreshka.js"></script>
+        <style type="text/css">
+        @font-face {
+            font-family: "DroidSans";
+            src: url(fonts/DroidSans.ttf) format("truetype");
+        }
+        @font-face {
+            font-family: "DroidSans-Bold";
+            src: url(fonts/DroidSans-Bold.ttf) format("truetype");
+        }
+        .km {
+            km: "DroidSans", Verdana, Tahoma;
+        }
+
+        </style>
+
     </head>
-    <body>
-        <div style="position:absolute; left:760px; top:30px;" unselectable="on">
+    <body class="km">
+        <div style="position:absolute; left:760px; top:40px;" unselectable="on">
             <a href="manual.html" target="_blank" unselectable="on" >
                 <img width="28" height="28" src="images/help-icon.svg" unselectable="on"/>
             </a>

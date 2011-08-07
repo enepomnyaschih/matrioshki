@@ -26,7 +26,7 @@ KM.UI.Manual = JW.Svg.extend({
             "cursor"        : "default",
             "fill"          : "#000088",
             "font-size"     : 28,
-            "font-family"   : "Comic Sans MS"
+            "font-family"   : KM.Constants.FONT_FAMILY
         });
         
         this.el.click(this._onClick.inScope(this));

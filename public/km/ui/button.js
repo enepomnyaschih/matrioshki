@@ -8,17 +8,17 @@ KM.UI.Button = JW.Svg.extend({
         this._super();
         
         this.rect(0, 0, this.getWidth(), this.getHeight(), 5).attr({
-            "fill"          : "white",
-            "stroke"        : "black",
+            "fill"          : "#77a2d9",
+            "stroke"        : "#77a2d9",
             "stroke-width"  : 3
         });
         
         this.paper.text(this.getWidth() / 2, this.getHeight() / 2 + 7, this.text).attr({
-            "fill"          : "black",
+            "fill"          : "white",
             "font-size"     : 20,
-            "font-family"   : "Comic Sans MS,serif"
+            "font-family"   : KM.Constants.FONT_FAMILY
         });
-        
+
         this.setAttr("cursor", "pointer");
     }
 });
