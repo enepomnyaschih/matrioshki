@@ -21,7 +21,7 @@ KM.UI.Battle.Side = JW.Svg.extend({
         
         for (var i = 0; i < this.side.inPower; ++i)
         {
-            var x = 50 + i * 30;
+            var x = 50 + i * 35;
             
             var unitView = this.side.player.createUnitView({
                 power   : i,
