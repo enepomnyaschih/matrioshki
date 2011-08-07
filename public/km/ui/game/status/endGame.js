@@ -6,16 +6,6 @@ KM.UI.Game.Status.EndGame = KM.UI.Game.Status.extend({
     // override
     run: function()
     {
-        if (this.gameView.game.winner == 0)
-        {
-            var mapView = this.gameView.mapView;
-            mapView.rect(15, 41, mapView.getWidth() - 30, mapView.getHeight() - 54).attr({
-                "fill"          : "none",
-                "stroke"        : "#BBBBBB",
-                "stroke-width"  : 1
-            });
-        }
-        
         this._timer = setInterval(this._animate.inScope(this), 40);
         
         this.restartButton = new KM.UI.Button({

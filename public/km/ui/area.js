@@ -1,6 +1,8 @@
 JW.ns("KM.UI");
 
 KM.UI.Area = JW.Svg.extend({
+    UNITUPDATED : "unitupdated", // handler(event)
+    
     area        : null,     // [required] KM.Model.Area
     broadcaster : null,     // [required] KM.UI.Broadcaster
     
@@ -93,7 +95,7 @@ KM.UI.Area = JW.Svg.extend({
             x       : KM.Constants.modelToViewX(this.area.center[0])
         });
         
-        this.addChild(this.unitView);
+        this.trigger("unitupdated");
         this._updateUnitPosition();
     },
     
