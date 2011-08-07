@@ -34,7 +34,7 @@ KM.UI.Game = JW.Svg.extend({
         this.addChild(this.mapView);
         
         this.endTurnButton = new KM.UI.Button({
-            text    : "End turn",
+            text    : KM.Locale.EndTurn,
             x       : KM.Constants.BUTTONX,
             y       : KM.Constants.BUTTONY,
             width   : 150,
