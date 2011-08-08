@@ -71,5 +71,28 @@
             </li>
             <li>If player secures all GDD hosting areas, he wins the game</li>
         </ol>
+        
+        <h2>How we developed this game</h2>
+        <p>The game is developed for participation in Google Open Call for Google Developer Day 2011 Challenge - Doodle the Dymaxion Map.<p>
+        <p>(to be continued...)</p>
+        
+        <h2>Implementation notes</h2>
+        <p>The application source source code consists of several JS-classes which manupulate page SVG-content. Source code is open for access on <a href="https://github.com/enepomnyaschih/matrioshki">https://github.com/enepomnyaschih/matrioshki</a>. The application is based on next frameworks:</p>
+        <ol>
+            <li><a href="http://jquery.com">jQuery</a> for simple DOM-manipulations</li>
+            <li><a href="http://raphaeljs.com">Raphaël</a> for graphics primitives output</li>
+            <li><a href="https://github.com/enepomnyaschih/utils/tree/master/js/jwidget">jWidget</a> - author's library, providing rich JS-utilities set</li>
+        </ol>
+        <p>The main issue which obstructed development - creating of SVG-elements based on existing SVG-resources from JS-code. Developers were forced to convert all SVG-resources from XML-format to lots of Raphaël-calls.</p>
+        
+        <h2>Development participants:</h2>
+        <ol>
+            <li>Pozdnyakov Yury - JS-developer, project owner, designer</li>
+            <li>Nepomnyaschih Egor - JS-developer, author of jWidget, author of the idea</li>
+            <li>Eroshchenko Kseniya - artist</li>
+            <li>Korovyanskiy Alexey - beta-tester, Omsk GTUG chief</li>
+            <li>Moiseeva Irina - beta-tester</li>
+            <li>Firsanov Konstantin - beta-tester</li>
+        </ol>
     </body>
 </html>
