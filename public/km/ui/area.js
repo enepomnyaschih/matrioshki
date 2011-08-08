@@ -26,6 +26,9 @@ KM.UI.Area = JW.Svg.extend({
         
         this.area.bind("playerchanged", this._onPlayerChanged, this);
         this.area.bind("powerchanged",  this._onPowerChanged,  this);
+        
+        this.el.mouseover(this._onMouseOver.inScope(this));
+        this.el.mouseout (this._onMouseOut .inScope(this));
     },
     
     setLight: function(value)
@@ -125,5 +128,35 @@ KM.UI.Area = JW.Svg.extend({
     {
         event.stopPropagation();
         this.broadcaster.trigger("areaclicked", this);
+    },
+    
+    _onMouseOver: function()
+    {
+        if (this._tooltip)
+            return;
+        
+        var template = (this.area.player == 0) ? KM.Locale.MatreshkaLevel : KM.Locale.AndroidLevel;
+        var data = {
+            level: this.area.power
+        };
+        
+        this._tooltip = new KM.UI.Tooltip({
+            x       : KM.Constants.modelToViewX(this.area.center[0]),
+            y       : KM.Constants.modelToViewY(this.area.center[1]) - 30,
+            text    : $.template(template).apply(data),
+            color   : JW.Colors.lighten(this.area.getPlayer().color, .5)
+        });
+        
+        application.gameView.mapView.addChild(this._tooltip);
+        this._tooltip.creationComplete();
+    },
+    
+    _onMouseOut: function()
+    {
+        if (!this._tooltip)
+            return;
+        
+        this._tooltip.destroy();
+        delete this._tooltip;
     }
 });

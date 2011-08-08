@@ -8,3 +8,5 @@ KM.Locale.Manual = "Андроиды вышли из под контроля и 
             "Кликните, чтобы продолжить...";
 KM.Locale.EndTurn = "Конец хода";
 KM.Locale.Restart = "Заново";
+KM.Locale.MatreshkaLevel = "Матрешка ${level} уровня";
+KM.Locale.AndroidLevel = "Андроид ${level} уровня";

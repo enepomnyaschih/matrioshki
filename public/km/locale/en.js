@@ -8,5 +8,7 @@ KM.Locale = {
             "Don't let androids to capture all GDD hosting locations\n—\n" +
             "Click to continue...",
     EndTurn: "End turn",
-    Restart: "Restart"
+    Restart: "Restart",
+    MatreshkaLevel: "Matreshka of ${level} level",
+    AndroidLevel: "Android of ${level} level"
 }
