@@ -14,6 +14,7 @@ KM.Application = JW.Svg.extend({
     creationComplete: function()
     {
         this._super();
+        this._initLocale();
         
         JW.PreLoader.bind("complete", function(){
             this.restart();
@@ -38,6 +39,14 @@ KM.Application = JW.Svg.extend({
         this.addChildAt(this.gameView, 0);
         
         this.gameView.creationComplete();
+    },
+
+    _initLocale: function()
+    {
+        var locale = KM.Locale[navigator.language];
+        if (!locale)
+            return;
+        $.extend(KM.Locale, locale);
     },
     
     _renderManual: function()

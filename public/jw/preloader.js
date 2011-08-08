@@ -12,7 +12,7 @@ JW.PreLoaderClass = JW.Observable.extend({
 
     request: function(options) {
         this.requests.push(options);
-        this.start.inScope(this).defer(1);
+        $(this.start.inScope(this));
     },
 
     start: function() {

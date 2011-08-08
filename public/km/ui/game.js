@@ -47,9 +47,12 @@ KM.UI.Game = JW.Svg.extend({
     
     creationComplete: function()
     {
-        this.setStatus(new KM.UI.Game.Status.SelectSource());
-        
+        this.setStatus(new KM.UI.Game.Status.Wait());
         this._super();
+    },
+
+    start: function() {
+        this.setStatus(new KM.UI.Game.Status.SelectSource());
     },
     
     setStatus: function(status)
