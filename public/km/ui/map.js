@@ -4,6 +4,10 @@ KM.UI.Map = JW.Svg.extend({
     map         : null,     // [required] KM.Model.Map
     broadcaster : null,     // [required] KM.UI.Broadcaster
     
+    areaLayer   : null,     // [readonly] JW.Svg
+    unitLayer   : null,     // [readonly] JW.Svg
+    flagLayer   : null,     // [readonly] JW.Svg
+    
     areaViews   : null,     // [readonly] Array of KM.UI.Area
     flagViews   : null,     // [readonly] Array of KM.UI.Flag.Point
     
@@ -15,6 +19,14 @@ KM.UI.Map = JW.Svg.extend({
     render: function()
     {
         this._super();
+        
+        this.areaLayer = new JW.Svg();
+        this.unitLayer = new JW.Svg();
+        this.flagLayer = new JW.Svg();
+        
+        this.addChild(this.areaLayer);
+        this.addChild(this.unitLayer);
+        this.addChild(this.flagLayer);
         
         this.areaViews = [];
         this.map.areas.each(this._renderArea, this);
@@ -31,7 +43,15 @@ KM.UI.Map = JW.Svg.extend({
         });
         
         this.areaViews.push(areaView);
-        this.addChild(areaView);
+        this.areaLayer.addChild(areaView);
+        
+        areaView.bind("unitupdated", this._onAreaUnitUpdated, this);
+        this._updateUnit(areaView);
+    },
+    
+    _updateUnit: function(areaView)
+    {
+        this.unitLayer.addChildAt(areaView.unitView, areaView.area.index);
     },
     
     _renderFlag: function(flag)
@@ -41,6 +61,11 @@ KM.UI.Map = JW.Svg.extend({
         });
         
         this.flagViews.push(flagView);
-        this.addChild(flagView);
+        this.flagLayer.addChild(flagView);
+    },
+    
+    _onAreaUnitUpdated: function(event)
+    {
+        this._updateUnit(event.target);
     }
 });
