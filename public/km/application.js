@@ -16,6 +16,9 @@ KM.Application = JW.Svg.extend({
         this._super();
         this._initLocale();
         
+        document.title = KM.Locale.Title;
+        $(".manual-link").attr("href", "manual-" + KM.Locale.ID + ".html");
+        
         JW.PreLoader.bind("complete", function(){
             this.restart();
         }.inScope(this));
@@ -43,10 +46,16 @@ KM.Application = JW.Svg.extend({
 
     _initLocale: function()
     {
-        var locale = KM.Locale[navigator.language];
+        var locale = KM.Locale[this._getLocale()];
         if (!locale)
             return;
+        
         $.extend(KM.Locale, locale);
+    },
+    
+    _getLocale: function()
+    {
+        return JW.Params["hl"] || navigator.language.substr(0, 2);
     },
     
     _renderManual: function()
