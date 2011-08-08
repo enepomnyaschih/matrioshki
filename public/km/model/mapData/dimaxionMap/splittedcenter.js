@@ -25,7 +25,7 @@ KM.Model.MapData.DimaxionMap.SplittedCenter = {
         },
         {//4
             "coordinates":[[862,109],[962,292],[763,292]],
-            "center":[822,251],
+            "center":[832,241],
             "player":1,
             "cityCount":2,
             "borders":[8]
@@ -137,7 +137,7 @@ KM.Model.MapData.DimaxionMap.SplittedCenter = {
         },
         {
             "coordinates":[[226,498],[325,681],[126,681]],
-            "center":[246,630],
+            "center":[236,630],
             "player":1,
             "cityCount":1,
             "borders":[15,21]
@@ -190,27 +190,27 @@ KM.Model.MapData.DimaxionMap.SplittedCenter = {
             "country":"Cze",
             "area":2
         }, {
-            "coordinates":[415.17,282.35],
+            "coordinates":[417.17,282.35],
             "country":"Izr",
             "area":2
         }, {
-            "coordinates":[906.85,245.70],
+            "coordinates":[891.85,245.70],
             "country":"Bra",
             "area":3
         }, {
-            "coordinates":[931.53,266.19],
+            "coordinates":[916.53,266.19],
             "country":"Arg",
             "area":3
         }, {
-            "coordinates":[501.99,332.01],
+            "coordinates":[471.99,332.01],
             "country":"Rus",
             "area":6
         }, {
-            "coordinates":[508.63,530.00],
+            "coordinates":[468.63,528.00],
             "country":"Jap",
             "area":17
         }, {
-            "coordinates":[211.59,612.76],
+            "coordinates":[196.59,592.76],
             "country":"Aus",
             "area":19
         }
