@@ -1,8 +1,9 @@
 KM.UI.Flag.Defeat.Cze = KM.UI.Flag.Defeat.extend({
-    flagName: "images/flag-cze-d.svg"
+    xOffset: -14,
+    flagName: "images/flag-1-cze.svg"
 });
 
 JW.PreLoader.request({
-    url: "images/flag-cze-d.svg",
+    url: "images/flag-1-cze.svg",
     viewBox: "0 0 303 191"
 });

@@ -23,6 +23,9 @@ KM.ConstantsClass = JW.Class.extend({
     FLAG_VIEW_WIDTH     : 42,
     FLAG_VIEW_HEIGHT    : 28,
 
+    DFLAG_VIEW_WIDTH    : 75,
+    DFLAG_VIEW_HEIGHT   : 50,
+
     DICE_VIEW_SIZE      : 20,
     
     AREA_LIGHTEN_STD    : 0,
