@@ -17,9 +17,9 @@ KM.UI.Unit = JW.Svg.extend({
         
         this.headView = new JW.Svg();
         this.bodyView = new JW.Svg();
-        
-        this.addChild(this.headView);
+
         this.addChild(this.bodyView);
+        this.addChild(this.headView);
         
         this._drawHead();
         this._drawBody();
