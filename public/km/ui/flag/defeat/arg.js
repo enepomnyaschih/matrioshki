@@ -1,3 +1,3 @@
 KM.UI.Flag.Defeat.Arg = KM.UI.Flag.Defeat.extend({
-    flagName: "images/flag-arg.svg"
+    flagName: "images/flag-arg-d.svg"
 });
