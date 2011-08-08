@@ -3,6 +3,8 @@
         <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
         
         <title>Матрешки против Андроидов</title>
+
+        <link href="css/common.css" rel="stylesheet" type="text/css" />
         
         <script type="text/javascript" charset="utf-8" src="thirdparty/jquery.js"></script>
         <script type="text/javascript" charset="utf-8" src="thirdparty/jquery.cookie.js"></script>
@@ -10,7 +12,9 @@
         <script type="text/javascript" charset="utf-8" src="thirdparty/jwidget.js"></script>
         
         <script type="text/javascript" charset="utf-8" src="jw/colors.js"></script>
+        <script type="text/javascript" charset="utf-8" src="jw/preloader.js"></script>
         <script type="text/javascript" charset="utf-8" src="jw/svg.js"></script>
+        <script type="text/javascript" charset="utf-8" src="jw/svg/image.js"></script>
         
         <script type="text/javascript" charset="utf-8" src="km/constants.js"></script>
         <script type="text/javascript" charset="utf-8" src="km/application.js"></script>
@@ -75,34 +79,9 @@
         <script type="text/javascript" charset="utf-8" src="km/ui/unit.js"></script>
         <script type="text/javascript" charset="utf-8" src="km/ui/unit/android.js"></script>
         <script type="text/javascript" charset="utf-8" src="km/ui/unit/matreshka.js"></script>
-        <style type="text/css">
-        @font-face {
-            font-family: "DroidSans";
-            src: url(fonts/DroidSans.ttf) format("truetype");
-        }
-        @font-face {
-            font-family: "DroidSans-Bold";
-            src: url(fonts/DroidSans-Bold.ttf) format("truetype");
-        }
-        .km {
-            km: "DroidSans", Verdana, Tahoma;
-        }
-
-        </style>
 
     </head>
     <body class="km">
-        <div style="position:absolute; left:30px; top:36px;" unselectable="on">
-            <a href="index-ru.html" unselectable="on" onclick="$.cookie(\"kmmanual\", 0)">
-
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="150" height="40" x="630" y="430" overflow="visible" cursor="pointer">
-    <rect x="3" y="3" width="74" height="28" r="5" rx="5" ry="5" fill="#77a2d9" stroke="#77a2d9" style="stroke-width: 3;" stroke-width="3"/>
-    <text x="40" y="22" text-anchor="middle" style="text-anchor: middle; font: 14px &quot;DroidSans&quot;,Arial;" font="14px &quot;DroidSans&quot;, &quot;Arial&quot;" stroke="none" fill="#ffffff" font-size="14px" font-family="&quot;DroidSans&quot;, Arial">
-        <tspan>РУССКИЙ</tspan>
-    </text>
-</svg>
-            </a>
-        </div>
         <div style="position:absolute; left:760px; top:36px;" unselectable="on">
             <a href="manual-ru.html" target="_blank" unselectable="on" >
                 <img width="28" height="28" src="images/help-icon.svg" unselectable="on"/>
@@ -114,6 +93,7 @@
             </a>
         </div>
         <div class="game"></div>
-        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Лицензия Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br />Произведение «<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">Matreshki vs Androids</span>» созданное автором по имени <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Egor Nepomnyaschih</span>, публикуется на условиях <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">лицензии Creative Commons Attribution-NonCommercial-ShareAlike (<i>Атрибуция — Некоммерческое использование — С сохранением условий</i>) 3.0 Непортированная</a>.
+        <div class="km-licenses"><a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Лицензия Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />Это произведение доступно по <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">лицензии Creative Commons Attribution (<i>Атрибуция</i>) 3.0 Непортированная</a>.</div>
     </body>
 </html>
+
