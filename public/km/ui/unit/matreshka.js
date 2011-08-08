@@ -1,5 +1,5 @@
 KM.UI.Unit.Matreshka = KM.UI.Unit.extend({
-	COMMONSCALE: 21,
+	COMMONSCALE: 19,
 	FLOWERSCALE: 250,
 
     render: function()
