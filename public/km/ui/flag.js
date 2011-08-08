@@ -24,35 +24,12 @@ KM.UI.Flag = JW.Svg.extend({
     // virtual
     _drawFlag: function()
     {
-        this.flag = new JW.Svg({
-            width:  this.width,
-            height: this.height
+        this.flag = new JW.Svg.Image({
+            width   : this.width,
+            height  : this.height,
+            src     : this.flagName
         });
 
         this.addChild(this.flag);
-
-        this.loadFlag();
-
-        this.flag.setAttr("viewBox", "0 0 " + 303 + " " + 191);
-    },
-
-    loadFlag: function() /*void*/
-    {
-        $.ajax({
-            url: this.flagName,
-            methods: "get",
-            success: function(scope, status, response) {
-                var parser = new DOMParser();
-                parser.async = false;
-
-                var el = parser.parseFromString(response.responseText, 'text/xml').documentElement;
-                this.flag.paper.canvas.appendChild(el);
-            }.inScope(this)
-        });
-    },
-
-});
-
-JW.Component.template(KM.UI.Flag, {
-    viewBox: $.template("0 0 ${size} ${size}")
+    }
 });

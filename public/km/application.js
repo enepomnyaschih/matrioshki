@@ -14,30 +14,13 @@ KM.Application = JW.Svg.extend({
     creationComplete: function()
     {
         this._super();
+        this._initLocale();
         
+        JW.PreLoader.bind("complete", function(){
+            this.restart();
+        }.inScope(this));
+
         this._renderManual();
-        this.restart();
-        
-        /*
-        var flags = [ "Arg", "Bra", "Aus", "Cze", "Ger", "Izr", "Jap", "Rus" ];
-        for (var i = 0; i < flags.length; ++i)
-        {
-            var cls = KM.UI.Flag.Victory[flags[i]];
-            var flag = new cls({
-                x: 50 * (i + 1),
-                y: 50
-            });
-            this.addChild(flag);
-            flag.creationComplete();
-            
-            var cls = KM.UI.Flag.Defeat[flags[i]];
-            var flag = new cls({
-                x: 50 * (i + 1),
-                y: 100
-            });
-            this.addChild(flag);
-            flag.creationComplete();
-        }*/
     },
     
     restart: function()
@@ -56,6 +39,14 @@ KM.Application = JW.Svg.extend({
         this.addChildAt(this.gameView, 0);
         
         this.gameView.creationComplete();
+    },
+
+    _initLocale: function()
+    {
+        var locale = KM.Locale[navigator.language];
+        if (!locale)
+            return;
+        $.extend(KM.Locale, locale);
     },
     
     _renderManual: function()
