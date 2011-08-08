@@ -7,13 +7,13 @@ KM.UI.Button = JW.Svg.extend({
     {
         this._super();
         
-        this.rect(0, 0, this.getWidth(), this.getHeight(), 5).attr({
+        var rect = this.rect(0, 0, this.getWidth(), this.getHeight(), 5).attr({
             "fill"          : "#77a2d9",
             "stroke"        : "#77a2d9",
             "stroke-width"  : 3
         });
         
-        this.paper.text(this.getWidth() / 2, this.getHeight() / 2 + 7, this.text).attr({
+        var text = this.paper.text(this.getWidth() / 2, this.getHeight() / 2 + ($.browser.msie ? -6 : 7), this.text).attr({
             "fill"          : "white",
             "font-size"     : 20,
             "font-family"   : KM.Constants.FONT_FAMILY
