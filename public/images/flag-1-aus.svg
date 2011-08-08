@@ -250,22 +250,6 @@
          sodipodi:nodetypes="ccccccsscccccccccccccsccsccc" />
     </g>
     <path
-       transform="translate(-41.143338,916.57759)"
-       d="m 180.31222,61.867175 -5.04887,-4.14592 -3.71505,5.373831 0.0935,-6.532302 -6.51773,0.445982 5.16545,-3.999728 -4.41242,-4.817702 6.34772,1.544723 1.01553,-6.453557 2.75003,5.925966 5.67876,-3.229753 -2.91849,5.844836 6.06578,2.426122 -6.38933,1.362425 1.88513,6.255077 z"
-       inkscape:randomized="0"
-       inkscape:rounded="0"
-       inkscape:flatsided="false"
-       sodipodi:arg2="1.4315927"
-       sodipodi:arg1="0.98279372"
-       sodipodi:r2="4.3817472"
-       sodipodi:r1="10.198039"
-       sodipodi:cy="53.381893"
-       sodipodi:cx="174.65536"
-       sodipodi:sides="7"
-       id="path4356"
-       style="fill:#ffffff;fill-opacity:1"
-       sodipodi:type="star" />
-    <path
        sodipodi:type="star"
        style="fill:#dbe3e2;fill-opacity:1"
        id="path3882"
