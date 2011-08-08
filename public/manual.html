@@ -7,77 +7,75 @@
     <body>
         <h1>Matreshki vs Androids</h1>
         <h2>History</h2>
-        <p>Androids got out of control and captured all <a href="http://www.google.com/events/developerday/2011/">Google Developer Day 2011</a> hosting locations excepting Moscow. And only
-        <a href="http://en.wikipedia.org/wiki/Matryoshka_doll">Russian matreshki</a> can fix androids up and safe the feast!</p>
+        <p>Androids got out of control and captured all <a href="http://www.google.com/events/developerday/2011/">Google Developer Day 2011</a> hosting locations except Moscow. The only way to safe the feast is to use the <a href="http://en.wikipedia.org/wiki/Matryoshka_doll">Russian matreshki</a> to fix the androids up before all the GDD hosting locations are captured.</p>
         <h2>Goals of the game</h2>
         <ol>
             <li>Secure all Google Developer Day hosting locations</li>
-            <li>Don't let Androids to capture all Google Developer Day hosting locations</li>
+            <li>Don't let the Androids capture all the Google Developer Day hosting locations</li>
         </ol>
         <h2>Game rules</h2>
         <ol>
             <li>2 players participate in the game: human vs computer</li>
-            <li>Human controls matreshki</li>
-            <li>Computer controls androids</li>
-            <li>Game map is split to 25 areas</li>
-            <li>Each area is under control of some player initially:
+            <li>The human player controls the matreshki</li>
+            <li>The computer player controls the androids</li>
+            <li>The game map is split into 25 areas</li>
+            <li>Each area is under the control of some player initially:
                 <ol>
-                    <li>Moscow area is under control of matreshki</li>
-                    <li>Other Google Developer Day hosting areas are under control of androids</li>
-                    <li>Remaining areas are arranged among players randomly in 3:1 (androids:matreshki) relation</li>
+                    <li>Moscow area is under the control of the matreshki</li>
+                    <li>Other Google Developer Day hosting areas are under the control of the androids</li>
+                    <li>The remaining areas are randomly split among both players, in a 3:1 ratio (androids:matreshki)</li>
                 </ol>
             </li>
-            <li>There is a unit in each area: matreshka or android</li>
-            <li>Units have different sizes: there are 8 levels of unit size</li>
-            <li>Human player makes first turn</li>
-            <li>While player has turn on, he can make any number of attacks</li>
-            <li>To attack, player must click source area and then click target area:
+            <li>There is a unit in each area: either a matreshka or an android</li>
+            <li>Units have different sizes, ranging from level 1 up to level 8</li>
+            <li>The human player starts out by making the first turn</li>
+            <li>During a players turn, that player can make any number of attacks</li>
+            <li>To attack, the player must click a source area and then click target area:
                 <ol>
-                    <li>Source and target areas must be adjacent</li>
-                    <li>Source area must belong to current player</li>
-                    <li>Target area must belong to enemy player</li>
-                    <li>Source area must have unit of at least 2'nd level</li>
+                    <li>The source and the target areas must be adjacent to each other</li>
+                    <li>The source area must belong to current player</li>
+                    <li>The target area must belong to enemy player</li>
+                    <li>The source area must have unit of at least 2nd level in it</li>
                 </ol>
             </li>
-            <li>Battle happens automatically in the next order:
+            <li>Battle happens automatically in the following order:
                 <ol>
-                    <li>Each player is rolling the dices</li>
-                    <li>Number of dices equals to level of corresponding unit</li>
-                    <li>Dices' points are summed</li>
-                    <li>If attacking player has more points, then he wins the battle:
+                    <li>Each player rolls an amount of dice equal to the level of the corresponding unit (this happens automatically)</li>
+                    <li>The pips (numbers) on the dice are tallied together to build a total point value</li>
+                    <li>If the attacking player has more points, then he wins the battle:
                         <ol>
                             <li>Attacking player captures the area</li>
-                            <li>Attacking unit's level is decreased by 1 and he moves to captured area</li>
-                            <li>Attacking area gets the unit of 1'st level</li>
+                            <li>Attacking unit's level is decreased by 1 and it moves to the captured area</li>
+                            <li>The area the attack came from retains a 1st level unit</li>
                         </ol>
-                    <li>Else attacking player retreats:
+                    <li>Otherwise, the attacking player has to retreat:
                         <ol>
-                            <li>Attacking area's unit is weakened to 1'st level</li>
+                            <li>Attacking area's unit is knocked down to a 1st level unit</li>
                         </ol>
                     </li>
                 </ol>
             </li>
-            <li>Player can click "End turn" button if he doesn't want to attack anymore:
+            <li>A player can click the "End turn" button if he doesn't want to attack anymore:
                 <ol>
-                    <li>Current player gets reinforcements:
+                    <li>The current player gets reinforcements:
                         <ol>
-                            <li>The maximum number of joined areas under player's control is calculated</li>
-                            <li>Random units under player's control grow by the same number of levels</li>
-                            <li>No units grow over 8'th level</li>
+                            <li>The maximum number of joined (adjacent) areas under a player's control is calculated into reinforcement points</li>
+                            <li>Based on the reinforcement value, units that player controls randomly gain levels until all reinforcement points have been exhausted</li>
+                            <li>No unit can grow beyond the 8th level</li>
                         </ol>
                     </li>
-                    <li>Another player starts his turn</li>
+                    <li>The next player starts his turn</li>
                 </ol>
             </li>
-            <li>If player secures all Google Developer Day hosting areas, he wins the game</li>
+            <li>If a player secures all Google Developer Day hosting areas, he wins the game</li>
         </ol>
         
         <h2>How we developed this game</h2>
-        <p>The game is developed for participation in Google Open Call for Google Developer Day 2011 Challenge - Doodle the Dymaxion Map.<p>
+        <p>This game was developed for participation in Google Open Call for Google Developer Day 2011 Challenge - Doodle the Dymaxion Map.<p>
         <p>(to be continued...)</p>
         
         <h2>Implementation notes</h2>
-        <p>The application source source code consists of several JS-classes which manupulate page SVG-content. Source code is open for access on <a href="https://github.com/enepomnyaschih/matrioshki">https://github.com/enepomnyaschih/matrioshki</a>. The application is based on next frameworks:</p>
+        <p>The application source code consists of several JS-classes which manupulate page SVG-content. Source code is open for access on <a href="https://github.com/enepomnyaschih/matrioshki">https://github.com/enepomnyaschih/matrioshki</a>. The application is based on next frameworks:</p>
         <ol>
             <li><a href="http://jquery.com">jQuery</a> for simple DOM-manipulations</li>
             <li><a href="http://raphaeljs.com">Raphaël</a> for graphics primitives output</li>
@@ -93,6 +91,7 @@
             <li>Korovyanskiy Alexey - beta-tester, Omsk GTUG chief</li>
             <li>Moiseeva Irina - beta-tester</li>
             <li>Firsanov Konstantin - beta-tester</li>
+            <li>Anthony De Moss - localization assistant</li>
         </ol>
     </body>
 </html>
