@@ -15,12 +15,13 @@ KM.UI.Manual = JW.Svg.extend({
         });
         
         this.paper.text(
-            400, 220,
+            400, 200,
             KM.Locale.Manual
         ).attr({
             "cursor"        : "default",
             "fill"          : "#000088",
-            "font-size"     : 28,
+            "font-size"     : 25,
+            "font-weight"   : "bold",
             "font-family"   : KM.Constants.FONT_FAMILY
         });
         

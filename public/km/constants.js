@@ -20,8 +20,9 @@ KM.ConstantsClass = JW.Class.extend({
     UNIT_SCALE_COEF     : .4,
     UNIT_MAX_POWER      : 8,
 
-    FLAG_VIEW_SIZE      : 15,
-    
+    FLAG_VIEW_WIDTH     : 42,
+    FLAG_VIEW_HEIGHT    : 28,
+
     DICE_VIEW_SIZE      : 20,
     
     AREA_LIGHTEN_STD    : 0,
@@ -35,7 +36,7 @@ KM.ConstantsClass = JW.Class.extend({
     BUTTONX             : 630,
     BUTTONY             : 430,
 
-    FONT_FAMILY         : "\"DroidSans\", Arial",
+    FONT_FAMILY         : "Tahoma, Georgia",
     
     init: function()
     {
