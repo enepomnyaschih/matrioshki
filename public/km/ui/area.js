@@ -8,6 +8,7 @@ KM.UI.Area = JW.Svg.extend({
     
     areaPath    : null,     // [readonly] Raphael path
     unitView    : null,     // [readonly] KM.UI.Unit
+    tooltip     : null,     // [readonly] KM.UI.Tooltip
     enabled     : false,    // [readonly] Boolean
     color       : null,     // [readonly] String
     
@@ -114,14 +115,55 @@ KM.UI.Area = JW.Svg.extend({
         this.areaPath.attr("fill", color);
     },
     
+    _updateTooltip: function()
+    {
+        if (!this.tooltip)
+            return;
+        
+        this._removeTooltip();
+        this._addTooltip();
+    },
+    
+    _addTooltip: function()
+    {
+        if (this.tooltip)
+            return;
+        
+        var template = (this.area.player == 0) ? KM.Locale.MatreshkaLevel : KM.Locale.AndroidLevel;
+        var data = {
+            level: this.area.power
+        };
+        
+        this.tooltip = new KM.UI.Tooltip({
+            x       : KM.Constants.modelToViewX(this.area.center[0]),
+            y       : KM.Constants.modelToViewY(this.area.center[1]) - 30,
+            text    : $.template(template).apply(data),
+            color   : JW.Colors.lighten(this.area.getPlayer().color, .5)
+        });
+        
+        application.gameView.mapView.addChild(this.tooltip);
+        this.tooltip.creationComplete();
+    },
+    
+    _removeTooltip: function()
+    {
+        if (!this.tooltip)
+            return;
+        
+        this.tooltip.destroy();
+        delete this.tooltip;
+    },
+    
     _onPlayerChanged: function()
     {
         this._updateColor();
+        this._updateTooltip();
     },
     
     _onPowerChanged: function()
     {
         this._updateUnit();
+        this._updateTooltip();
     },
     
     _onClick: function(event)
@@ -132,31 +174,11 @@ KM.UI.Area = JW.Svg.extend({
     
     _onMouseOver: function()
     {
-        if (this._tooltip)
-            return;
-        
-        var template = (this.area.player == 0) ? KM.Locale.MatreshkaLevel : KM.Locale.AndroidLevel;
-        var data = {
-            level: this.area.power
-        };
-        
-        this._tooltip = new KM.UI.Tooltip({
-            x       : KM.Constants.modelToViewX(this.area.center[0]),
-            y       : KM.Constants.modelToViewY(this.area.center[1]) - 30,
-            text    : $.template(template).apply(data),
-            color   : JW.Colors.lighten(this.area.getPlayer().color, .5)
-        });
-        
-        application.gameView.mapView.addChild(this._tooltip);
-        this._tooltip.creationComplete();
+        this._addTooltip();
     },
     
     _onMouseOut: function()
     {
-        if (!this._tooltip)
-            return;
-        
-        this._tooltip.destroy();
-        delete this._tooltip;
+        this._removeTooltip();
     }
 });
