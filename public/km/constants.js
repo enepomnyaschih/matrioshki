@@ -39,6 +39,12 @@ KM.ConstantsClass = JW.Class.extend({
     BUTTONX             : 630,
     BUTTONY             : 430,
 
+    SOUNDX              : 20,
+    SOUNDY              : 20,
+
+    SOUND_WIDTH         : 40,
+    SOUND_HEIGHT        : 40,
+
     FONT_FAMILY         : "Tahoma,sans-serif",
     
     init: function()
