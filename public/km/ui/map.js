@@ -7,6 +7,7 @@ KM.UI.Map = JW.Svg.extend({
     areaLayer   : null,     // [readonly] JW.Svg
     unitLayer   : null,     // [readonly] JW.Svg
     flagLayer   : null,     // [readonly] JW.Svg
+    ttipLayer   : null,     // [readonly] JW.Svg
     
     areaViews   : null,     // [readonly] Array of KM.UI.Area
     flagViews   : null,     // [readonly] Array of KM.UI.Flag.Point
@@ -23,10 +24,12 @@ KM.UI.Map = JW.Svg.extend({
         this.areaLayer = new JW.Svg();
         this.unitLayer = new JW.Svg();
         this.flagLayer = new JW.Svg();
+        this.ttipLayer = new JW.Svg();
         
         this.addChild(this.areaLayer);
         this.addChild(this.unitLayer);
         this.addChild(this.flagLayer);
+        this.addChild(this.ttipLayer);
         
         this.areaViews = [];
         this.map.areas.each(this._renderArea, this);
@@ -45,7 +48,8 @@ KM.UI.Map = JW.Svg.extend({
         this.areaViews.push(areaView);
         this.areaLayer.addChild(areaView);
         
-        areaView.bind("unitupdated", this._onAreaUnitUpdated, this);
+        areaView.bind("unitupdated",    this._onAreaUnitUpdated,    this);
+        areaView.bind("tooltipupdated", this._onAreaTooltipUpdated, this);
         this._updateUnit(areaView);
     },
     
@@ -67,5 +71,11 @@ KM.UI.Map = JW.Svg.extend({
     _onAreaUnitUpdated: function(event)
     {
         this._updateUnit(event.target);
+    },
+    
+    _onAreaTooltipUpdated: function(event)
+    {
+        var areaView = event.target;
+        this.ttipLayer.addChild(areaView.tooltip);
     }
 });

@@ -1,7 +1,8 @@
 JW.ns("KM.UI");
 
 KM.UI.Area = JW.Svg.extend({
-    UNITUPDATED : "unitupdated", // handler(event)
+    UNITUPDATED     : "unitupdated",    // handler(event)
+    TOOLTIPUPDATED  : "tooltipupdated", // handler(event)
     
     area        : null,     // [required] KM.Model.Area
     broadcaster : null,     // [required] KM.UI.Broadcaster
@@ -141,7 +142,7 @@ KM.UI.Area = JW.Svg.extend({
             color   : JW.Colors.lighten(this.area.getPlayer().color, .5)
         });
         
-        application.gameView.mapView.addChild(this.tooltip);
+        this.trigger("tooltipupdated");
         this.tooltip.creationComplete();
     },
     
