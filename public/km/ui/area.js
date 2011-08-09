@@ -130,6 +130,9 @@ KM.UI.Area = JW.Svg.extend({
         if (this.tooltip)
             return;
         
+        if (JW.isSet(this.area.map.game.winner))
+            return;
+        
         var template = (this.area.player == 0) ? KM.Locale.MatreshkaLevel : KM.Locale.AndroidLevel;
         var data = {
             level: this.area.power
