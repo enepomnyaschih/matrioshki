@@ -29,9 +29,7 @@ KM.UI.Sound = JW.Svg.extend({
                 [
                     "audio/Dune-2-The-battle-for-Arrakis.ogg",
                     "audio/Cannon-Fodder-War-Has-Never-Been-So-Much-Fun.ogg",
-                    "audio/Zero-Tolerance-Sub-basement.ogg",
-                    "audio/Mecano-Associates-Alisia-Dragoon.ogg",
-                    "audio/Golden-Axe-A-Voyage-to-Castle.ogg"
+                    "audio/Zero-Tolerance-Sub-basement.ogg"
                 ]
             });
         }
