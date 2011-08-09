@@ -39,7 +39,7 @@ KM.ConstantsClass = JW.Class.extend({
     BUTTONX             : 630,
     BUTTONY             : 430,
 
-    FONT_FAMILY         : "Tahoma, Georgia",
+    FONT_FAMILY         : "Tahoma,sans-serif",
     
     init: function()
     {
