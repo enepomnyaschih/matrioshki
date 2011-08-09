@@ -17,13 +17,9 @@ KM.Application = JW.Svg.extend({
         this._initLocale();
         
         document.title = KM.Locale.Title;
-        $(".manual-link").attr("href", "manual-" + KM.Locale.ID + ".html");
         
-        JW.PreLoader.bind("complete", function(){
-            this.restart();
-        }.inScope(this));
-
-        this._renderManual();
+        JW.PreLoader.bind("complete", this._onResourcesLoaded, this);
+        JW.PreLoader.start();
     },
     
     restart: function()
@@ -42,6 +38,15 @@ KM.Application = JW.Svg.extend({
         this.addChildAt(this.gameView, 0);
         
         this.gameView.creationComplete();
+    },
+    
+    _onResourcesLoaded: function()
+    {
+        $(".manual-link").attr("href", "manual-" + KM.Locale.ID + ".html");
+        $(".km-root").show();
+        
+        this.restart();
+        this._renderManual();
     },
 
     _initLocale: function()

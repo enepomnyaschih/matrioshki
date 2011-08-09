@@ -1,4 +1,9 @@
 .km
 {
-    font-family: Tahoma, Georgia;
+    font-family: Tahoma,sans-serif;
+}
+
+.km-root
+{
+    display:none;
 }
