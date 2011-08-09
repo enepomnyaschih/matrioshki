@@ -46,6 +46,9 @@ KM.Application = JW.Svg.extend({
 
     _initLocale: function()
     {
+        if (JW.Params.hl)
+            $.cookie("kmlocale", JW.Params.hl);
+        
         var locale = KM.Locale[this._getLocale()];
         if (!locale)
             return;
@@ -55,7 +58,7 @@ KM.Application = JW.Svg.extend({
     
     _getLocale: function()
     {
-        return JW.Params["hl"] || navigator.language.substr(0, 2);
+        return $.cookie("kmlocale") || navigator.language.substr(0, 2);
     },
     
     _renderManual: function()
