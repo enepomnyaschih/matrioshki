@@ -47,6 +47,7 @@ KM.Application = JW.Svg.extend({
         
         this.restart();
         this._renderManual();
+        //this.initSound();
     },
 
     _initLocale: function()
@@ -75,6 +76,13 @@ KM.Application = JW.Svg.extend({
         this.addChild(this.manualView);
         
         this.manualView.creationComplete();
+    },
+
+    initSound: function()
+    {
+        this.soundView = new KM.UI.Sound();
+        this.addChild(this.soundView);
+        this.soundView.creationComplete();
     }
 });
 
