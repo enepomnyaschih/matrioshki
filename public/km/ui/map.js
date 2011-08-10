@@ -27,8 +27,8 @@ KM.UI.Map = JW.Svg.extend({
         this.ttipLayer = new JW.Svg();
         
         this.addChild(this.areaLayer);
-        this.addChild(this.unitLayer);
         this.addChild(this.flagLayer);
+        this.addChild(this.unitLayer);
         this.addChild(this.ttipLayer);
         
         this.areaViews = [];
