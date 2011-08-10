@@ -31,6 +31,11 @@ KM.Model.Game = JW.Model.extend({
         return this.winner;
     },
 
+    getDifficulty: function()
+    {
+        return parseInt(JW.defn($.cookie("kmdifficulty"), 0));
+    },
+
     _initMap: function() /*void*/
     {
         this.map = new KM.Model.Map({

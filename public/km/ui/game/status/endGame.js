@@ -2,11 +2,28 @@ KM.UI.Game.Status.EndGame = KM.UI.Game.Status.extend({
     animation       : 0,
     
     restartButton   : null,
-    
+
     // override
     run: function()
     {
         this._timer = setInterval(this._animate.inScope(this), 40);
+
+        if (this.gameView.game.winner == 0)
+        {
+            this.russianFlag = new JW.Svg.Image({
+                width: KM.Constants.MAP_VIEW_WIDTH+72,
+                height: KM.Constants.MAP_VIEW_HEIGHT+72,
+                x: KM.Constants.MAP_VIEW_X - 45,
+                y: KM.Constants.MAP_VIEW_Y - 20,
+                src: "images/OpenCallVisualFlag.svg"
+            });
+
+            this.gameView.addChildAt(this.russianFlag, 0);
+            this.russianFlag.setAttr("opacity", 0);
+            this.gameView.mapView.areaLayer.hide();
+
+            $.cookie("kmdifficulty", 1 + this.gameView.game.getDifficulty());
+        }
         
         this.restartButton = new KM.UI.Button({
             text    : KM.Locale.Restart,
@@ -40,7 +57,7 @@ KM.UI.Game.Status.EndGame = KM.UI.Game.Status.extend({
                 areaView.setJump(jump, headJump);
             
             if (this.gameView.game.winner == 0)
-                areaView.setColor(JW.Colors.lighten(this._getAreaColor(areaView.area.center[1]), Math.max(0, Math.min(1, 1 - 0.5 * this.animation))));
+                this.russianFlag.setAttr("opacity", Math.max(0, Math.min(1, 0.7 * this.animation - 0.2)));
         }, this);
         
         this.gameView.paper.safari();
@@ -61,4 +78,9 @@ KM.UI.Game.Status.EndGame = KM.UI.Game.Status.extend({
         this.gameView.setStatus(null);
         application.restart();
     }
+});
+
+JW.PreLoader.request({
+    url: "images/OpenCallVisualFlag.svg",
+    viewBox: "0 0 1186 790"
 });

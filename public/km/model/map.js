@@ -95,7 +95,7 @@ KM.Model.Map = JW.Model.extend({
         for (var i = 0; i < 20; ++i)
             this.empowerPlayer(0);
         
-        for (var i = 0; i < 20; ++i)
+        for (var i = 0; i < 20 + this.game.getDifficulty(); ++i)
             this.empowerPlayer(1);
     },
     
