@@ -64,7 +64,16 @@ KM.Application = JW.Svg.extend({
     
     _getLocale: function()
     {
-        return $.cookie("kmlocale") || navigator.language.substr(0, 2);
+        var language = "en";
+        if (navigator.language)
+        {
+            language = navigator.language.substr(0, 2);
+        }
+        if ($.cookie("kmlocale"))
+        {
+            language = $.cookie("kmlocale");
+        }
+        return language;
     },
     
     _renderManual: function()
