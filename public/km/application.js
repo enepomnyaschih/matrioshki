@@ -83,6 +83,12 @@ KM.Application = JW.Svg.extend({
         this.soundView = new KM.UI.Sound();
         this.addChild(this.soundView);
         this.soundView.creationComplete();
+
+        var background = new JW.TrackList({
+			srcs: background_soundtracks
+        });
+
+        this.soundView.play(background);
     }
 });
 

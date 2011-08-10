@@ -56,6 +56,12 @@ JW.TrackList = JW.Class.extend({
     setMuted: function(value)  /*void*/
     {
         this.muted = value;
+
+        if (!this.muted)
+        {
+	        this.currentTrack = this._getNextTrack();
+        }
+
         this._updateState();
     },
 

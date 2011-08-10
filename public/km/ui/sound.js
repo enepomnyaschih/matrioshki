@@ -11,8 +11,6 @@ KM.UI.Sound = JW.Svg.extend({
 
     soundTracks : null,
 
-    background  : null,
-
     init: function(config)
     {
         this._super(config);
@@ -21,20 +19,6 @@ KM.UI.Sound = JW.Svg.extend({
             return;
 
         this.soundTracks = [];
-
-        if (!this.background)
-        {
-            this.background = new JW.TrackList({
-                srcs:
-                [
-                    "audio/Dune-2-The-battle-for-Arrakis.ogg",
-                    "audio/Cannon-Fodder-War-Has-Never-Been-So-Much-Fun.ogg",
-                    "audio/Zero-Tolerance-Sub-basement.ogg"
-                ]
-            });
-        }
-
-        this.play(this.background);
     },
 
     creationComplete: function()
