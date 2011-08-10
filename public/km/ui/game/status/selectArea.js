@@ -13,6 +13,9 @@ KM.UI.Game.Status.SelectArea = KM.UI.Game.Status.extend({
     {
         this.gameView.endTurnButton.show();
         
+        this.gameView.game.map.getPlayerBorders(0).each(this._runPlayerBorder, this);
+        this.gameView.broadcaster.bind("areaclicked", this._onAreaClicked, this);
+        
         if (this.sourceAreaView)
         {
             this.sourceAreaView.setLight(.9);
@@ -21,9 +24,6 @@ KM.UI.Game.Status.SelectArea = KM.UI.Game.Status.extend({
             this._freeClickHandler = this._onFreeClick.inScope(this);
             this.gameView.el.bind("click", this._freeClickHandler);
         }
-        
-        this.gameView.game.map.getPlayerBorders(0).each(this._runPlayerBorder, this);
-        this.gameView.broadcaster.bind("areaclicked", this._onAreaClicked, this);
     },
     
     // override
