@@ -32,6 +32,9 @@ JW.Svg = JW.Component.extend({
     
     destroyComponent: function()
     {
+        for (var i = 0; i < this.children.length; ++i)
+            this.children[i].destroy();
+        
         if (this.parent)
             this.parent.removeChild(this);
         

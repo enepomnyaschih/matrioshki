@@ -40,11 +40,15 @@ KM.UI.Game.Status.EndGame = KM.UI.Game.Status.extend({
     // override
     stop: function()
     {
-        clearInterval(this.timer);
+        clearInterval(this._timer);
+        delete this._timer;
     },
     
     _animate: function()
     {
+        if (!this._timer)
+            return;
+        
         this.animation += .04;
         
         //var light = (Math.sin(3 * Math.PI * this.animation) + 2) / 4;

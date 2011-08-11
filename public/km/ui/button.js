@@ -1,7 +1,7 @@
 JW.ns("KM.UI");
 
 KM.UI.Button = JW.Svg.extend({
-    text: "Button", // [optional] String
+    text: "", // [optional] String
     
     render: function()
     {

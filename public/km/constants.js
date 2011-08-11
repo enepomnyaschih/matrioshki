@@ -42,8 +42,8 @@ KM.ConstantsClass = JW.Class.extend({
     SOUNDX              : 20,
     SOUNDY              : 20,
 
-    SOUND_WIDTH         : 40,
-    SOUND_HEIGHT        : 40,
+    SOUND_WIDTH         : 100,
+    SOUND_HEIGHT        : 110,
 
     HELP_SIZE           : 25,
     HELP_X              : 760,
