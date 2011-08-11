@@ -2,6 +2,7 @@ JW.ns("JW.Svg");
 
 JW.Svg.Image = JW.Svg.extend({
     src: "images/flag-arg.svg",
+    href: "",
 
     width       : 10,
     height      : 10,
@@ -14,6 +15,12 @@ JW.Svg.Image = JW.Svg.extend({
         
         var response = JW.PreLoader.getResponse(this.src);
         this.setAttr("viewBox", response.viewBox);
+
+        if (this.href)
+        {
+            this.el.bind("click", this.__onClickLink.inScope(this));
+            this.setAttr("cursor", "pointer");
+        }
     },
     
     addSvgChild: function(src)
@@ -30,5 +37,10 @@ JW.Svg.Image = JW.Svg.extend({
         this.paper.canvas.appendChild(el);
         
         return el;
+    },
+
+    __onClickLink: function()
+    {
+        window.open(this.href);
     }
 });

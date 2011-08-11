@@ -42,11 +42,12 @@ KM.Application = JW.Svg.extend({
     
     _onResourcesLoaded: function()
     {
-        $(".manual-link").attr("href", "manual-" + KM.Locale.ID + ".html");
         $(".km-root").show();
         
         this.restart();
         this._renderManual();
+        this._initHelp();
+        this._initGoogleAsset();
         //this.initSound();
     },
 
@@ -96,8 +97,23 @@ KM.Application = JW.Svg.extend({
         var background = new JW.TrackList({
             srcs: background_soundtracks
         });
-
         this.soundView.play(background);*/
+    },
+
+    _initHelp: function()
+    {
+        this.helpView = new KM.UI.Help({
+            href   : "manual-" + KM.Locale.ID + ".html",
+        });
+        this.addChild(this.helpView);
+        this.helpView.creationComplete();
+    },
+
+    _initGoogleAsset: function()
+    {
+        this.googleView = new KM.UI.GoogleAsset();
+        this.addChild(this.googleView);
+        this.googleView.creationComplete();
     }
 });
 
@@ -118,3 +134,8 @@ function addMedved()
     application.gameView.addChild(bear);
     bear.creationComplete();
 }
+
+JW.PreLoader.request({
+    url: "images/help-icon.svg",
+    viewBox: "0 0 400 400"
+});
