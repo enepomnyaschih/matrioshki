@@ -1,6 +1,6 @@
 JW.ns("KM.UI");
 
-KM.UI.Sound.On = KM.UI.Button.extend({
+KM.UI.Sound.On = JW.Svg.extend({
     balaView    : null,     // JW.Svg.Image
     
     width       : KM.Constants.SOUND_WIDTH,

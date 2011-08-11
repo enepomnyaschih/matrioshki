@@ -1,43 +1,27 @@
 JW.TrackList = JW.Class.extend({
-    srcs        : "audio/background.ogg",
-    currentTrack: 0,
-    muted       : false,
-    paused      : true,
-    rnd         : true,
+    tracks              : null,
+    muted               : false,
+    paused              : true,
+    rnd                 : false,
 
-    _tracks     : null,
+
+    track               : null,
+    trackIndex          : -1,
 
     init: function(config) /*void*/
     {
-        this._super(config);
         $.extend(this, config);
+        this._super(config);
 
-        if (!JW.isArray(this.srcs))
-        {
-            this.srcs = [this.srcs];
-        }
-
-        this._tracks = [];
-
-        JW.each(this.srcs, function(src){
-            var audio = new Audio();
-            audio.src = src;
-            audio.addEventListener('ended', function(){
-                this.next();
-            }.inScope(this), false);
-            audio.volume = 0.05;
-            this._tracks.push(audio);
-        }.inScope(this));
-
-        this.currentTrack = this._getNextTrack();
+        this.track = this.getNextTrack();
     },
 
     next: function() /*void*/
     {
-        this._tracks[this.currentTrack].currentTime = 0;
-        this._tracks[this.currentTrack].pause();
+        this.track.currentTime = 0;
+        this.track.pause();
 
-        this.currentTrack = this._getNextTrack();
+        this.track = this.getNextTrack();
         this._updateState();
     },
 
@@ -56,28 +40,33 @@ JW.TrackList = JW.Class.extend({
     setMuted: function(value)  /*void*/
     {
         this.muted = value;
-
-        if (!this.muted)
-        {
-	        this.currentTrack = this._getNextTrack();
-        }
-
         this._updateState();
+
+        if (this.muted)
+        {
+	        this.track = this.getNextTrack();
+        }
     },
 
     _updateState: function()
     {
         var state = !(this.paused || this.muted);
-        this._tracks[this.currentTrack][state?"play":"pause"]();
+        this.track[state?"play":"pause"]();
     },
 
-    _getNextTrack: function()
+    getNextTrack: function()
     {
         if (this.rnd)
-        {
-            return Math.floor((Math.random() * this._tracks.length));
-        }
+            this.trackIndex = Math.floor((Math.random() * this.tracks.length));
+        else
+            this.trackIndex = (this.trackIndex + 1) % this.tracks.length;
 
-        return (this.currentTrack + 1) % this._tracks.length;
+        var nextTrack = new Audio();
+        nextTrack.addEventListener('ended', function() {
+            this.next();
+        }.inScope(this), false);
+
+        nextTrack.src = this.tracks[this.trackIndex].ogg;
+        return nextTrack;
     }
 });
