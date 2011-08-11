@@ -111,3 +111,10 @@ function startApplication()
 }
 
 $(startApplication);
+
+function addMedved()
+{
+    var bear = new KM.UI.Bear();
+    application.gameView.addChild(bear);
+    bear.creationComplete();
+}

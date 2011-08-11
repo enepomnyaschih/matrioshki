@@ -9,17 +9,26 @@ JW.Svg.Image = JW.Svg.extend({
     render: function()
     {
         this._super();
-        if (!JW.PreLoader.isComplete(this.src))
-            return;
-
+        
+        this.svgEl = this.addSvgChild(this.src);
+        
         var response = JW.PreLoader.getResponse(this.src);
-
+        this.setAttr("viewBox", response.viewBox);
+    },
+    
+    addSvgChild: function(src)
+    {
+        if (!JW.PreLoader.isComplete(src))
+            throw new Error("Resource is not loaded: " + src);
+        
+        var response = JW.PreLoader.getResponse(src);
+        
         var parser = new DOMParser();
         parser.async = false;
-
+        
         var el = parser.parseFromString(response.responseText, 'text/xml').documentElement;
         this.paper.canvas.appendChild(el);
-
-        this.setAttr("viewBox", response.viewBox);
+        
+        return el;
     }
 });

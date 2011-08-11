@@ -12,8 +12,8 @@
    id="svg3682"
    version="1.1"
    inkscape:version="0.47 r22583"
-   width="200"
-   height="270"
+   width="446"
+   height="507"
    sodipodi:docname="BEAR1.svg">
   <metadata
      id="metadata3688">
@@ -129,7 +129,7 @@
      inkscape:window-y="-4"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg3682" />
-  <g transform="rotate(40 100 200) translate(-100 -120)">
+  <g transform="rotate(-15 70 200)">
   <path
      style="fill:#c87137;fill-opacity:1;stroke:none"
      d="m 141,273.5 c -9.46703,66.63212 2.14746,106.75028 20.25,144.5 1.80072,0.4692 1.98056,1.45285 3.42818,0.40747 41.93779,-30.28498 80.01418,-71.69127 118.1022,-106.1246 2.36357,-2.13678 1.5197,-3.09444 1.46962,-4.28287 C 239.24568,287.4686 196.46432,269.18891 141,273.5 z"
