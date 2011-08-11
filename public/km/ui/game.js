@@ -12,6 +12,7 @@ KM.UI.Game = JW.Svg.extend({
     mapView         : null,     // [readonly] KM.UI.Map
     status          : null,     // [readonly] KM.UI.Game.Status
     endTurnButton   : null,     // [readonly] KM.UI.Button
+    giveupButton    : null,     // [readonly] KM.UI.Giveup
     
     currentPlayer   : 0,        // [readonly] Integer
     
@@ -43,6 +44,14 @@ KM.UI.Game = JW.Svg.extend({
         
         this.addChild(this.endTurnButton);
         this.endTurnButton.el.click(this._onEndTurnClick.inScope(this));
+        
+        this.giveupButton = new KM.UI.Giveup({
+            x       : 730,
+            y       : 28
+        });
+        
+        this.addChild(this.giveupButton);
+        this.giveupButton.el.click(this._onGiveUpClick.inScope(this));
     },
     
     creationComplete: function()
@@ -64,6 +73,7 @@ KM.UI.Game = JW.Svg.extend({
         
         if (this.status)
         {
+            this.disableControls();
             this.status.gameView = this;
             this.status.run();
         }
@@ -88,6 +98,18 @@ KM.UI.Game = JW.Svg.extend({
         this.setStatus(new KM.UI.Game.Status.EndTurn());
     },
     
+    disableControls: function()
+    {
+        this.endTurnButton.hide();
+        this.giveupButton.hide();
+    },
+    
+    enableControls: function()
+    {
+        this.endTurnButton.show();
+        this.giveupButton.show();
+    },
+    
     _resetAreas: function()
     {
         this.mapView.areaViews.each(this._resetArea, this);
@@ -101,5 +123,11 @@ KM.UI.Game = JW.Svg.extend({
     _onEndTurnClick: function()
     {
         this.endTurn();
+    },
+    
+    _onGiveUpClick: function()
+    {
+        this.game.winner = 1;
+        this.setStatus(new KM.UI.Game.Status.EndGame());
     }
 });

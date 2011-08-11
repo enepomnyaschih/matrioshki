@@ -21,8 +21,6 @@ KM.UI.Game.Status.Attack = KM.UI.Game.Status.extend({
     // override
     run: function()
     {
-        this.gameView.endTurnButton.hide();
-        
         this.sourceAreaView.setLight(KM.Constants.AREA_LIGHTEN_BATTLE);
         this.targetAreaView.setLight(KM.Constants.AREA_LIGHTEN_BATTLE);
         

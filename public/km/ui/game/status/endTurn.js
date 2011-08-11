@@ -4,8 +4,6 @@ KM.UI.Game.Status.EndTurn = KM.UI.Game.Status.extend({
     // override
     run: function()
     {
-        this.gameView.endTurnButton.hide();
-        
         this.power = this._calculatePower();
         
         this._checkPower();

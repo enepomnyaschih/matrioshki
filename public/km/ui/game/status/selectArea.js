@@ -11,7 +11,7 @@ KM.UI.Game.Status.SelectArea = KM.UI.Game.Status.extend({
     // override
     run: function()
     {
-        this.gameView.endTurnButton.show();
+        this.gameView.enableControls();
         
         this.gameView.game.map.getPlayerBorders(0).each(this._runPlayerBorder, this);
         this.gameView.broadcaster.bind("areaclicked", this._onAreaClicked, this);
