@@ -15,6 +15,7 @@ KM.Locale["ru"] = {
     Title: "Матрешки против андроидов",
     GiveUp: "Сдаюсь!",
     LetsShakeIt: "Играй, родимая!",
+    BadBrowser: "Рекомендованный браузер: Mozilla Firefox 5 или Google Chrome. Внимание! Некоторые возможности в текущем браузере могут быть отключены.",
     
     BearJokes: [
         "Моя любимая! ${author} - ${song}",

@@ -16,6 +16,12 @@ KM.Application = JW.Svg.extend({
         this._super();
         this._initLocale();
         
+        var badBrowserEl = $(".km-bad-browser");
+        if (JW.Browsers.isGecko5 || JW.Browsers.isChrome)
+            badBrowserEl.remove();
+        else
+            badBrowserEl.text(KM.Locale.BadBrowser);
+        
         document.title = KM.Locale.Title;
         
         JW.PreLoader.bind("complete", this._onResourcesLoaded, this);

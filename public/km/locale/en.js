@@ -15,6 +15,7 @@ KM.Locale = {
     Title: "Matreshki vs Androids",
     GiveUp: "Give up!",
     LetsShakeIt: "Let's shake it!",
+    BadBrowser: "Recommended browser: Mozilla Firefox 5 or Google Chrome. Warning! Some features can be disabled in current browser.",
     
     BearJokes: [
         "My favorite song! ${author} - ${song}",
