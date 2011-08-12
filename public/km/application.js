@@ -48,7 +48,7 @@ KM.Application = JW.Svg.extend({
         this._renderManual();
         this._initHelp();
         this._initGoogleAsset();
-        this._initSound();
+//        this._initSound();
     },
 
     _initLocale: function()

@@ -1,6 +1,6 @@
 JW.ns("KM.UI");
 
-KM.UI.Sound.Off = JW.Svg.extend({
+KM.UI.Sound.Off = KM.UI.Button.extend({
     bearView    : null,     // KM.UI.Bear
     
     width       : KM.Constants.SOUND_WIDTH,

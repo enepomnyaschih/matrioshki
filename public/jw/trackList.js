@@ -62,6 +62,7 @@ JW.TrackList = JW.Class.extend({
             this.trackIndex = (this.trackIndex + 1) % this.tracks.length;
 
         var nextTrack = new Audio();
+
         nextTrack.addEventListener('ended', function() {
             this.next();
         }.inScope(this), false);
