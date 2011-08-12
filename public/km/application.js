@@ -44,10 +44,7 @@ KM.Application = JW.Svg.extend({
     {
         $(".km-root").show();
         
-        if (!$.browser.msie)
-        {
-            this._initSound();
-        }
+        this._initSound();
         this.restart();
         this._renderManual();
         this._initHelp();

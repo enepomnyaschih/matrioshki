@@ -14,9 +14,6 @@ KM.UI.Sound = JW.Svg.extend({
     {
         this._super(config);
         
-        if ($.browser.msie)
-            return;
-        
         this.trackList = new JW.TrackList({
             playlist: this.playlist
         });

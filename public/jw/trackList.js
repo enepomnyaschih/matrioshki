@@ -38,7 +38,12 @@ JW.TrackList = JW.Observable.extend({
         if (JW.Browsers.isChrome)
             this._timer = setTimeout(this._onEnded, track.duration * 1000);
         else
-            this.audioEl.addEventListener('ended', this._onEnded, false);
+        {
+            if (this.audioEl.addEventListener)
+                this.audioEl.addEventListener('ended', this._onEnded, false);
+            else
+                this.audioEl.onended = this._onEnded;
+        }
         
         this.audioEl.play();
         
@@ -63,7 +68,11 @@ JW.TrackList = JW.Observable.extend({
         }
         else
         {
-            this.audioEl.removeEventListener('ended', this._onEnded, false);
+            if (this.audioEl.addEventListener)
+                this.audioEl.removeEventListener('ended', this._onEnded, false);
+            else
+                delete this.audioEl.onended;
+            
         }
         
         this.audioEl.src = "/dummy";
@@ -79,7 +88,11 @@ JW.TrackList = JW.Observable.extend({
     {
         var track = this.playlist[this.index];
         var el = new Audio();
-        el.src = track.ogg + (JW.Browsers.isChrome ? ("?timestamp=" + Date.getTime()) : '');
+
+        var src = track.ogg;
+        if (!el.canPlayType("audio/ogg") && el.canPlayType("audio/mpeg"))
+            src = track.mp3;
+        el.src = src + (JW.Browsers.isChrome ? ("?timestamp=" + Date.getTime()) : '');
         return el;
     }
 });
