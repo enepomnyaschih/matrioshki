@@ -12,5 +12,6 @@ KM.Locale = {
     Restart: "Restart",
     MatreshkaLevel: "Matreshka of ${level} level",
     AndroidLevel: "Android of ${level} level",
-    Title: "Matreshki vs Androids"
+    Title: "Matreshki vs Androids",
+    LetsShakeIt: "Let's shake it!"
 }

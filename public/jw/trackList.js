@@ -51,7 +51,8 @@ JW.TrackList = JW.Observable.extend({
         this.isPlay = false;
         
         var el = this.audioEls[this.index];
-        el.currentTime = 0;
+        // This line causes DOM Error in Chrome on slow Internet
+        //el.currentTime = 0;
         el.pause();
         
         if (this._timer)

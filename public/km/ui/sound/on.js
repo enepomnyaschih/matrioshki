@@ -1,4 +1,4 @@
-JW.ns("KM.UI");
+﻿JW.ns("KM.UI");
 
 KM.UI.Sound.On = KM.UI.Button.extend({
     balaView    : null,     // JW.Svg.Image
@@ -11,6 +11,8 @@ KM.UI.Sound.On = KM.UI.Button.extend({
         this._super();
         
         this.rectEl.attr("opacity", 0);
+        this.rectEl.attr("title", KM.Locale.LetsShakeIt);
+        $(this.rectEl.node.parentNode).tooltip();
         
         this.balaView = new JW.Svg.Image({
             src     : "images/bear/balalaika2.svg",

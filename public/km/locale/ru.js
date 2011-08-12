@@ -12,5 +12,6 @@ KM.Locale["ru"] = {
     Restart: "Заново",
     MatreshkaLevel: "Матрешка ${level} уровня",
     AndroidLevel: "Андроид ${level} уровня",
-    Title: "Матрешки против андроидов"
+    Title: "Матрешки против андроидов",
+    LetsShakeIt: "Играй, родимая!"
 }
