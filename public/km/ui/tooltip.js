@@ -18,17 +18,22 @@ KM.UI.Tooltip = JW.Svg.extend({
             "font-family"   : KM.Constants.FONT_FAMILY
         });
         
-        var bbox = text.getBBox();
-        bbox.width  += 6;
-        bbox.height += 4;
+        if (!$.browser.msie)
+        {
+            ///TODO: sometimes this methods throws exception
+            var bbox = text.getBBox();
+            bbox.width  += 6;
+            bbox.height += 4;
         
-        rect.attr({
-            x       : -bbox.width / 2,
-            y       : -bbox.height / 2,
-            width   : bbox.width,
-            height  : bbox.height
-        });
+            rect.attr({
+                x       : -bbox.width / 2,
+                y       : -bbox.height / 2,
+                width   : bbox.width,
+                height  : bbox.height
+            });
+        }
         
         this.setAttr("pointer-events", "none");
+        
     }
 });
