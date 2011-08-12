@@ -3,7 +3,7 @@ JW.TrackList = JW.Observable.extend({
     
     playlist    : null,     // [required] Array
     
-    audioEls    : null,     // [readonly] Map from index to Audio
+    audioEl     : null,     // [readonly] Audio
     index       : null,     // [readonly] Integer
     isPlay      : false,    // [readonly] Boolean
     
@@ -13,7 +13,6 @@ JW.TrackList = JW.Observable.extend({
         
         $.extend(this, config);
         
-        this.audioEls = {};
         this._onEnded = this.next.as(this);
     },
     
@@ -31,18 +30,17 @@ JW.TrackList = JW.Observable.extend({
     {
         this.stop();
         
-        this.index  = JW.defn(this.index, 0);
-        this.isPlay = true;
+        this.index   = JW.defn(this.index, 0);
+        this.isPlay  = true;
+        this.audioEl = this._getAudio(this.index);
         
-        var track = this.playlist [this.index];
-        var el    = this._getAudio(this.index);
-        
+        var track = this.playlist[this.index];
         if (JW.Browsers.isChrome)
             this._timer = setTimeout(this._onEnded, track.duration * 1000);
         else
-            el.addEventListener('ended', this._onEnded, false);
+            this.audioEl.addEventListener('ended', this._onEnded, false);
         
-        el.play();
+        this.audioEl.play();
         
         this.trigger("trackchanged");
     },
@@ -54,10 +52,9 @@ JW.TrackList = JW.Observable.extend({
         
         this.isPlay = false;
         
-        var el = this.audioEls[this.index];
         // This line causes DOM Error in Chrome on slow Internet
-        //el.currentTime = 0;
-        el.pause();
+        //this.audioEl.currentTime = 0;
+        this.audioEl.pause();
         
         if (this._timer)
         {
@@ -66,8 +63,11 @@ JW.TrackList = JW.Observable.extend({
         }
         else
         {
-            el.removeEventListener('ended', this._onEnded, false);
+            this.audioEl.removeEventListener('ended', this._onEnded, false);
         }
+        
+        this.audioEl.src = "/dummy";
+        delete this.audioEl;
     },
     
     getCurrentTrack: function()
@@ -77,18 +77,9 @@ JW.TrackList = JW.Observable.extend({
     
     _getAudio: function(index)
     {
-        // This doesn't work don't know why
-        /*
-        var existingEl = this.audioEls[index];
-        if (existingEl)
-            return existingEl;
-        */
         var track = this.playlist[this.index];
         var el = new Audio();
         el.src = track.ogg + (JW.Browsers.isChrome ? ("?timestamp=" + Date.getTime()) : '');
-        
-        this.audioEls[index] = el;
-        
         return el;
     }
 });

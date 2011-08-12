@@ -13,6 +13,7 @@ KM.Locale = {
     MatreshkaLevel: "Matreshka of ${level} level",
     AndroidLevel: "Android of ${level} level",
     Title: "Matreshki vs Androids",
+    GiveUp: "Give up!",
     LetsShakeIt: "Let's shake it!",
     
     BearJokes: [
