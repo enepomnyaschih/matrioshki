@@ -10,6 +10,8 @@ KM.UI.Sound.Off = KM.UI.Button.extend({
     {
         this._super();
         
+        this.rectEl.attr("opacity", 0);
+        
         this.bearView = new KM.UI.Bear({
             x: 5,
             y: 5

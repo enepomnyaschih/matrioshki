@@ -10,6 +10,8 @@ KM.UI.Sound.On = KM.UI.Button.extend({
     {
         this._super();
         
+        this.rectEl.attr("opacity", 0);
+        
         this.balaView = new JW.Svg.Image({
             src     : "images/bear/balalaika2.svg",
             x       : 5,

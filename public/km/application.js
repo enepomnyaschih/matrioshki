@@ -44,11 +44,11 @@ KM.Application = JW.Svg.extend({
     {
         $(".km-root").show();
         
+        //this._initSound();
         this.restart();
         this._renderManual();
         this._initHelp();
         this._initGoogleAsset();
-        //this._initSound();
     },
 
     _initLocale: function()
