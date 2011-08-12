@@ -24,5 +24,6 @@ KM.Locale = {
         "The God himself wrote this song and passed to the best producer of all times - ${author}. ${song}!",
         "${author} wants you here to shake up this place - ${song}!",
         "Rock this feeling! ${author} - ${song}",
-    ]
+    ],
+    GDDTitle: "Google Developer Day 2011"
 }
