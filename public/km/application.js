@@ -48,7 +48,7 @@ KM.Application = JW.Svg.extend({
         this._renderManual();
         this._initHelp();
         this._initGoogleAsset();
-//        this._initSound();
+        //this._initSound();
     },
 
     _initLocale: function()
@@ -90,14 +90,12 @@ KM.Application = JW.Svg.extend({
 
     _initSound: function()
     {
-        this.soundView = new KM.UI.Sound();
+        this.soundView = new KM.UI.Sound({
+            playlist: KM.Audio.playlist
+        });
+        
         this.addChild(this.soundView);
         this.soundView.creationComplete();
-
-        var background = new JW.TrackList({
-            tracks: background_soundtracks
-        });
-        this.soundView.play(background);
     },
 
     _initHelp: function()

@@ -1,73 +1,82 @@
-JW.TrackList = JW.Class.extend({
-    tracks              : null,
-    muted               : false,
-    paused              : true,
-    rnd                 : false,
-
-
-    track               : null,
-    trackIndex          : -1,
-
-    init: function(config) /*void*/
+JW.TrackList = JW.Observable.extend({
+    playlist    : null,     // [required] Array
+    
+    audioEls    : null,     // [readonly] Map from index to Audio
+    index       : null,     // [readonly] Integer
+    isPlay      : false,    // [readonly] Boolean
+    
+    init: function(config)
     {
+        this._super();
+        
         $.extend(this, config);
-        this._super(config);
-
-        this.track = this.getNextTrack();
+        
+        this.audioEls = {};
+        this._onEnded = this.next.as(this);
+    },
+    
+    next: function()
+    {
+        this.stop();
+        
+        if (JW.isSet(this.index))
+            this.index = (this.index + 1) % this.playlist.length;
+        
+        this.play();
     },
 
-    next: function() /*void*/
+    play: function()
     {
-        this.track.currentTime = 0;
-        this.track.pause();
-
-        this.track = this.getNextTrack();
-        this._updateState();
+        this.stop();
+        
+        this.index  = JW.defn(this.index, 0);
+        this.isPlay = true;
+        
+        var track = this.playlist [this.index];
+        var el    = this._getAudio(this.index);
+        
+        if (JW.Browsers.isChrome)
+            this._timer = setTimeout(this._onEnded, track.duration * 1000);
+        else
+            el.addEventListener('ended', this._onEnded, false);
+        
+        el.play();
     },
 
-    play: function() /*void*/
+    stop: function()
     {
-        this.paused = false;
-        this._updateState();
-    },
-
-    pause: function() /*void*/
-    {
-        this.paused = true;
-        this._updateState();
-    },
-
-    setMuted: function(value)  /*void*/
-    {
-        this.muted = value;
-        this._updateState();
-
-        if (this.muted)
+        if (!this.isPlay)
+            return;
+        
+        this.isPlay = false;
+        
+        var el = this.audioEls[this.index];
+        el.currentTime = 0;
+        el.pause();
+        
+        if (this._timer)
         {
-	        this.track = this.getNextTrack();
+            clearTimeout(this._timer);
+            delete this._timer;
+        }
+        else
+        {
+            el.removeEventListener('ended', this._onEnded, false);
         }
     },
-
-    _updateState: function()
+    
+    _getAudio: function(index)
     {
-        var state = !(this.paused || this.muted);
-        this.track[state?"play":"pause"]();
-    },
-
-    getNextTrack: function()
-    {
-        if (this.rnd)
-            this.trackIndex = Math.floor((Math.random() * this.tracks.length));
-        else
-            this.trackIndex = (this.trackIndex + 1) % this.tracks.length;
-
-        var nextTrack = new Audio();
-
-        nextTrack.addEventListener('ended', function() {
-            this.next();
-        }.inScope(this), false);
-
-        nextTrack.src = this.tracks[this.trackIndex].ogg;
-        return nextTrack;
+        var existingEl = this.audioEls[index];
+        if (existingEl)
+            return existingEl;
+        
+        var track = this.playlist[this.index];
+        var el = new Audio();
+        el.src = track.ogg + (JW.Browsers.isChrome ? ("?timestamp=" + Date.getTime()) : '');
+        
+        this.audioEls[index] = el;
+        
+        return el;
     }
 });

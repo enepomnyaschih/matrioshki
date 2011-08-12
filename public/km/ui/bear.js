@@ -8,7 +8,7 @@ KM.UI.Bear = JW.Svg.Image.extend({
     width       : 100,
     height      : 100,
     
-    ANIMATION_STEP: 100,
+    ANIMATION_STEP: 40,
     
     render: function()
     {

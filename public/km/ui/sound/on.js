@@ -18,6 +18,7 @@ KM.UI.Sound.On = KM.UI.Button.extend({
             height  : 100
         });
         
+        this.balaView.setAttr("pointer-events", "none");
         this.addChild(this.balaView);
     }
 });

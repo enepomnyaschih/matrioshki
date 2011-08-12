@@ -15,6 +15,7 @@ KM.UI.Sound.Off = KM.UI.Button.extend({
             y: 5
         });
         
+        this.bearView.setAttr("pointer-events", "none");
         this.addChild(this.bearView);
     }
 });

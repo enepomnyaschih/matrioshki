@@ -1,74 +1,63 @@
 JW.ns("KM.UI");
 
 KM.UI.Sound = JW.Svg.extend({
+    playlist    : null,     // [required] Array
+    
+    soundOn     : null,     // [readonly] KM.UI.Sound.On
+    soundOff    : null,     // [readonly] KM.UI.Sound.Off
+    isPlay      : false,    // [readonly] Boolean
+    
     x           : KM.Constants.SOUNDX,
     y           : KM.Constants.SOUNDY,
-
-    muted       : true,
-
-    soundTracks : null,
-
+    
     init: function(config)
     {
         this._super(config);
-
+        
         if ($.browser.msie)
             return;
-
-        this.soundTracks = [];
+        
+        this.trackList = new JW.TrackList({
+            playlist: this.playlist
+        });
     },
 
     creationComplete: function()
     {
-        this.muteOn  = new KM.UI.Sound.On();
-        this.muteOff = new KM.UI.Sound.Off();
-
-        this.addChild(this.muteOff);
-        this.addChild(this.muteOn);
+        this.soundOn  = new KM.UI.Sound.On();
+        this.soundOff = new KM.UI.Sound.Off();
         
-        this.muteOn .creationComplete();
-        this.muteOff.creationComplete();
-
-        this._updateControl();
-
+        this.addChild(this.soundOn);
+        this.addChild(this.soundOff);
+        
+        this.soundOn .creationComplete();
+        this.soundOff.creationComplete();
+        
+        this._update();
+        
         this.setAttr("cursor", "pointer");
-        this.el.bind("click", this.toggleMute.inScope(this));
+        this.el.bind("click", this.togglePlay.inScope(this));
+    },
+    
+    togglePlay: function()
+    {
+        this.isPlay = !this.isPlay;
+        this._update();
     },
 
-    toggleMute: function()
+    _update: function()
     {
-        this.muted = !this.muted;
-
-        JW.each(this.soundTracks, function(track) {
-            track.setMuted(this.muted);
-        }.inScope(this));
-
-        this._updateControl();
-    },
-
-    stop: function(track)
-    {
-        track.pause();
-        track.currentTime = 0;
-        this.soundTracks.removeItem(track);
-    },
-
-    pause: function(track)
-    {
-        track.pause();
-        this.soundTracks.removeItem(track);
-    },
-
-    play: function(track)
-    {
-        this.soundTracks.push(track);
-        track.play();
-        track.setMuted(this.muted);
-    },
-
-    _updateControl: function()
-    {
-        this.muteOff[this.muted ? "hide" : "show"]();
-        this.muteOn [this.muted ? "show" : "hide"]();
+        if (this.isPlay)
+        {
+            this.trackList.next();
+            this.soundOn .hide();
+            this.soundOff.show();
+        }
+        else
+        {
+            this.trackList.stop();
+            this.soundOn .show();
+            this.soundOff.hide();
+        }
     }
 });
