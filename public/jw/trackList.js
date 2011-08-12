@@ -67,10 +67,12 @@ JW.TrackList = JW.Observable.extend({
     
     _getAudio: function(index)
     {
+        // This doesn't work don't know why
+        /*
         var existingEl = this.audioEls[index];
         if (existingEl)
             return existingEl;
-        
+        */
         var track = this.playlist[this.index];
         var el = new Audio();
         el.src = track.ogg + (JW.Browsers.isChrome ? ("?timestamp=" + Date.getTime()) : '');
