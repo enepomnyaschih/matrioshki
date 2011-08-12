@@ -44,7 +44,10 @@ KM.Application = JW.Svg.extend({
     {
         $(".km-root").show();
         
-        this._initSound();
+        if (Audio)
+        {
+            this._initSound();
+        }
         this.restart();
         this._renderManual();
         this._initHelp();
