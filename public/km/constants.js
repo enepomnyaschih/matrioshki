@@ -53,6 +53,8 @@ KM.ConstantsClass = JW.Class.extend({
     GOOGLE_Y            : 303,
     GOOGLE_WIDTH        : 94,
     GOOGLE_HEIGHT       : 100,
+
+    KEEP_DIFFICULY_DAYS : 1000,
     
 
     FONT_FAMILY         : "Tahoma,sans-serif",

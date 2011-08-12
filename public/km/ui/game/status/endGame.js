@@ -22,7 +22,11 @@ KM.UI.Game.Status.EndGame = KM.UI.Game.Status.extend({
             this.russianFlag.setAttr("opacity", 0);
             this.gameView.mapView.areaLayer.hide();
 
-            $.cookie("kmdifficulty", 1 + this.gameView.game.getDifficulty());
+            $.cookie("kmdifficulty", 1 + this.gameView.game.getDifficulty(), 
+                {
+                    expires     : KM.Constants.KEEP_DIFFICULY_DAYS/*days*/
+                }
+            );
         }
         
         this.restartButton = new KM.UI.Button({

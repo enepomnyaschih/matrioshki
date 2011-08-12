@@ -44,7 +44,10 @@ KM.Application = JW.Svg.extend({
     {
         $(".km-root").show();
         
-        //this._initSound();
+        if (!$.browser.msie)
+        {
+            this._initSound();
+        }
         this.restart();
         this._renderManual();
         this._initHelp();
@@ -54,7 +57,7 @@ KM.Application = JW.Svg.extend({
     _initLocale: function()
     {
         if (JW.Params.hl)
-            $.cookie("kmlocale", JW.Params.hl);
+            $.cookie("kmlocale", JW.Params.hl, {expires: 1000/*days*/});
         
         var locale = KM.Locale[this._getLocale()];
         if (!locale)

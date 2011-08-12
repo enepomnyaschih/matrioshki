@@ -32,6 +32,6 @@ KM.UI.Manual = JW.Svg.extend({
     {
         this.destroy();
         
-        $.cookie("kmmanual", "1");
+        $.cookie("kmmanual", "1", {expires: 1000/*days*/});
     }
 });
