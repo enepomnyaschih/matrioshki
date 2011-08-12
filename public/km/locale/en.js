@@ -13,5 +13,16 @@ KM.Locale = {
     MatreshkaLevel: "Matreshka of ${level} level",
     AndroidLevel: "Android of ${level} level",
     Title: "Matreshki vs Androids",
-    LetsShakeIt: "Let's shake it!"
+    LetsShakeIt: "Let's shake it!",
+    
+    BearJokes: [
+        "My favorite song! ${author} - ${song}",
+        "${author} has produced this specially for you - ${song}!",
+        "This song was a hit of 2009! ${author} - ${song}",
+        "The album with this song was platinum! ${author} - ${song}",
+        "${author} wanna lift you up - ${song}",
+        "The God himself wrote this song and passed to the best producer of all times - ${author}. ${song}!",
+        "${author} wants you here to shake up this place - ${song}!",
+        "Rock this feeling! ${author} - ${song}",
+    ]
 }

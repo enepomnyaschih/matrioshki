@@ -25,7 +25,9 @@ KM.UI.Sound = JW.Svg.extend({
     creationComplete: function()
     {
         this.soundOn  = new KM.UI.Sound.On();
-        this.soundOff = new KM.UI.Sound.Off();
+        this.soundOff = new KM.UI.Sound.Off({
+            trackList: this.trackList
+        });
         
         this.addChild(this.soundOn);
         this.addChild(this.soundOff);

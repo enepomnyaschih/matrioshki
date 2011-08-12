@@ -1,7 +1,9 @@
 JW.ns("KM.UI");
 
 KM.UI.Sound.Off = KM.UI.Button.extend({
-    bearView    : null,     // KM.UI.Bear
+    trackList   : null,     // [required] JW.TrackList
+    
+    bearView    : null,     // [readonly] KM.UI.Bear
     
     width       : KM.Constants.SOUND_WIDTH,
     height      : KM.Constants.SOUND_HEIGHT,
@@ -19,5 +21,18 @@ KM.UI.Sound.Off = KM.UI.Button.extend({
         
         this.bearView.setAttr("pointer-events", "none");
         this.addChild(this.bearView);
+        
+        this.trackList.bind("trackchanged", this._updateTrack.as(this), this);
+    },
+    
+    _updateTrack: function()
+    {
+        var track = this.trackList.getCurrentTrack();
+        if (!track)
+            return;
+        
+        var joke = KM.Locale.BearJokes.random();
+        this.rectEl.attr("title", $.template(joke).apply(track));
+        $(this.rectEl.node.parentNode).tooltip();
     }
 });

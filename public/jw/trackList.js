@@ -1,4 +1,6 @@
 JW.TrackList = JW.Observable.extend({
+    TRACKCHANGED: "trackchanged", // handler(event)
+    
     playlist    : null,     // [required] Array
     
     audioEls    : null,     // [readonly] Map from index to Audio
@@ -41,6 +43,8 @@ JW.TrackList = JW.Observable.extend({
             el.addEventListener('ended', this._onEnded, false);
         
         el.play();
+        
+        this.trigger("trackchanged");
     },
 
     stop: function()
@@ -64,6 +68,11 @@ JW.TrackList = JW.Observable.extend({
         {
             el.removeEventListener('ended', this._onEnded, false);
         }
+    },
+    
+    getCurrentTrack: function()
+    {
+        return JW.isSet(this.index) ? this.playlist[this.index] : null;
     },
     
     _getAudio: function(index)
