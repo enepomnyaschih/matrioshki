@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg3459"
@@ -26,6 +28,35 @@
   </metadata>
   <defs
      id="defs3473">
+     <linearGradient
+       id="linearGradient5300">
+      <stop
+         style="stop-color:#f3dcca;stop-opacity:1;"
+         offset="0"
+         id="stop5302" />
+      <stop
+         style="stop-color:#f3e5e5;stop-opacity:1;"
+         offset="1"
+         id="stop5304" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5294"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#f3e5e5;stop-opacity:1;"
+         offset="0"
+         id="stop5296" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5300"
+       id="radialGradient5306"
+       cx="-639.07819"
+       cy="231.84224"
+       fx="-639.07819"
+       fy="231.84224"
+       r="74.59272"
+       gradientUnits="userSpaceOnUse" />
     <inkscape:path-effect
        effect="skeletal"
        id="path-effect4372"
@@ -124,7 +155,7 @@
        sodipodi:cy="231.84224"
        sodipodi:cx="-639.07819"
        id="path3489"
-       style="fill:#f3e5e5;fill-rule:evenodd;stroke:none;fill-opacity:1"
+       style="fill:url(#radialGradient5306);fill-rule:evenodd;stroke:none;fill-opacity:1"
        sodipodi:type="arc" />
     <path
        style="fill:#b96023;fill-opacity:1;stroke:none"
