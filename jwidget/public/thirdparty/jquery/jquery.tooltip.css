@@ -2,7 +2,7 @@
 	position: absolute;
 	z-index: 3000;
 	border: 1px solid #de9625;
-	background: #ffa800 url("/images/bg-tooltip.png") repeat-x left top;
+	background: #ffa800 url("images/bg-tooltip.png") repeat-x left top;
 	padding: 5px;
 	opacity: 0.9;
 	font-size: 10px;

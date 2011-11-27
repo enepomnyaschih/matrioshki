@@ -1,4 +1,4 @@
-JW.Svg = JW.Component.extend({
+JW.Svg = JW.UI.Component.extend({
     x           : null, // [optional] Number
     y           : null, // [optional] Number
     width       : null, // [optional] Number
@@ -238,14 +238,6 @@ JW.Svg = JW.Component.extend({
         circle.node.removeAttribute("stroke");
         circle.node.removeAttribute("fill");
         return circle;
-    },
-    
-    rect: function()
-    {
-        var rect = this.paper.rect.apply(this.paper, arguments);
-        rect.node.removeAttribute("stroke");
-        rect.node.removeAttribute("fill");
-        return rect;
     },
     
     stretchChildren: function()

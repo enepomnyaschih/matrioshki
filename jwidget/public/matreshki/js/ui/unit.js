@@ -54,6 +54,6 @@ KM.UI.Unit = JW.Svg.extend({
     }
 });
 
-JW.Component.template(KM.UI.Unit, {
+JW.UI.template(KM.UI.Unit, {
     viewBox: $.template("0 0 ${size} ${size}")
 });

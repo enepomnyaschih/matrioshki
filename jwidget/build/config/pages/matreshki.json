@@ -1,0 +1,16 @@
+{
+    "base"     : "includes/ui",
+    "template" : "matreshki",
+    "title"    : "Matreshki vs Androids",
+    
+    "css": [
+        "thirdparty/jquery/jquery.tooltip.css",
+        "matreshki/css/common.css",
+        "matreshki/css/index.css"
+    ],
+    
+    "js": [
+        "thirdparty/raphael/raphael.js|auto",
+        "matreshki"
+    ]
+}

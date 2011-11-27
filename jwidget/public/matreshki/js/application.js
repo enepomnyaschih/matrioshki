@@ -110,7 +110,7 @@ KM.Application = JW.Svg.extend({
     _initHelp: function()
     {
         this.helpView = new KM.UI.Help({
-            href   : "manual-" + KM.Locale.ID + ".html",
+            href   : "/matreshki/manual-" + KM.Locale.ID + ".html",
         });
         this.addChild(this.helpView);
         this.helpView.creationComplete();
