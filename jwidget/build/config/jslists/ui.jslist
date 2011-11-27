@@ -1,0 +1,7 @@
+thirdparty/jquery/jquery.template.js
+
+ui/jquery.patch.js
+ui/core.js
+ui/component.js
+ui/plugin.js
+ui/button.js

@@ -1,0 +1,24 @@
+1. Change license to GPL
+14. Add README.txt to all subfolders and update common README.txt
+15. Handle window.onerror in tests
+17. Schema validation: ClassString (as default defined in application, or key in "classes" dictionary)
+18. JW.Schema instances inheritance
+19. JSDoc
+20. Tasks and Jobs
+21. CSS lists support
+
+
+DMD utils:
+1. Test JW.Color
+2. Test new Date methods
+3. Test JW.cmp for booleans
+4. Test JW.makeClass
+5. Test getField, setField, bindEvent
+6. Test capitalize, camel, hyphen
+7. Test Class.create
+8. Test algorithms: everyBy, everyByMethod, eachByMethod, someBy, someByMethod, filterByMethod, mapByMethod, mapFields
+9. Test delegates: forth, back
+10. Test Math extension
+11. Test JW.Params
+12. Test timezones
+13. Test JW.Url

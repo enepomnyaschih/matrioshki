@@ -1,0 +1,13 @@
+{
+    "base": "includes/unit",
+    
+    "title": "jWidget unit tests",
+    
+    "css": [
+    ],
+    
+    "js": [
+        "schema",
+        "tests"
+    ]
+}

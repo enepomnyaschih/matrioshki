@@ -1,0 +1,12 @@
+{
+    "template": "base",
+    
+    "css": [
+    ],
+    
+    "js": [
+        "thirdparty/jquery/jquery.js|auto",
+        
+        "lib"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "base": "includes/base",
+    
+    "css": [
+        "thirdparty/reset.css"
+    ],
+    
+    "js": [
+        "ui"
+    ]
+}
